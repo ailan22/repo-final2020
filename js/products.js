@@ -2,7 +2,7 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
-function showCategoriesList(lista) {
+function showProductsList(lista) {
 
     let htmlContentToAppend = "";
     for (let i = 0; i < lista.length; i++) {
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(PRODUCTS_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
             //Muestro las categorías ordenadas
-            showCategoriesList(resultObj.data);
+            showProductsList(resultObj.data);
         }
     });
 });
