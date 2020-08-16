@@ -9,7 +9,7 @@ function showProductsList(lista) {
         let producto = lista[i];
 
         htmlContentToAppend += `
-        <a href="product-info.html" class="list-group-item list-group-item-action">
+        <div class="list-group-item">
             <div class="row">
                 <div class="col-3">
                     <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">
@@ -19,10 +19,11 @@ function showProductsList(lista) {
                         <h4 class="mb-1">` + producto.name + `</h4>
                         <small class="text-muted">` + producto.soldCount + ` artículos</small>
                     </div>
+                    <div>` + "$USD " + producto.cost + `</div>
                     <p class="mb-1">` + producto.description + `</p>
                 </div>
             </div>
-        </a>
+        </div>
         `
     };
     //    document.getElementById("lista_producto").innerHTML += htmlContentToAppend;
