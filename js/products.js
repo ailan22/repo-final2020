@@ -19,7 +19,7 @@ function showProductsList(lista) {
                         <h4 class="mb-1">` + producto.name + `</h4>
                         <small class="text-muted">` + producto.soldCount + ` artículos</small>
                     </div>
-                    <div>` + "$USD " + producto.cost + `</div>
+                    <div>` + producto.currency + "" + producto.cost + `</div>
                     <p class="mb-1">` + producto.description + `</p>
                 </div>
             </div>
