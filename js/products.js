@@ -17,7 +17,7 @@ function showProductsList(lista) {
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
                         <h4 class="mb-1">` + producto.name + `</h4>
-                        <small class="text-muted">` + producto.soldCount + ` artículos</small>
+                        <small class="text-muted">` + producto.soldCount + ` cantidad de vendidos</small>
                     </div>
                     <div>` + producto.currency + "" + producto.cost + `</div>
                     <p class="mb-1">` + producto.description + `</p>
