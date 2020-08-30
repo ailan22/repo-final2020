@@ -10,9 +10,11 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+
     <style>
         html,
         body {
@@ -23,10 +25,10 @@
             display: -ms-flexbox;
             display: flex;
             -ms-flex-align: center;
-            align-items: center;
+            align-items: center no-repeat;
             padding-top: 40px;
             padding-bottom: 40px;
-            background-color: #f5f5f5;
+            backdrop-filter: blur(20px) grayscale(60%);
         }
         
         .signin {
@@ -38,26 +40,53 @@
     </style>
 </head>
 
-<body class="text-center">
+<body class="text-center my-text-center" background="img/fondo.jpg">
     <div class="container p-5">
         <div class="alert alert-danger my-alert-danger" role="alert" style="position: relative; width:450px; top: 0;">
             <form name="formularioLogin" class="form-signin" id="formulario" action="index.html" onsubmit="return validarForm()">
                 <img class="mb-4 img-resize" src="img/login.png">
-                <h1 class="h3 mb-3 font-weight-normal">Ingrese sus datos</h1>
+                <h1 class="h3 mb-3 my-font-weight-normal">Ingrese sus datos</h1>
                 <div id="demo"></div>
-                <label for="inputEmail" class="sr-only">Correo electrónico</label>
-                <input type="email" name="gmail" id="inputEmail" class="form-control my-form-control" placeholder="-Correo electrónico-">
-                <div id="demo1"></div>
-                <label for="inputPassword" class="sr-only">Contraseña</label>
-                <input type="password" id="inputPassword" class="form-control my-form-control" placeholder="-Contraseña-">
-                <div class="checkbox mb-3">
-                    <label>
-                    <input type="checkbox" value="remember-me"> Remember me
-                  </label>
+                <div class="input-group mb-1">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-user my-fa-fa-user"></i></span>
+                    </div>
+                    <label for="inputUsuario" class="sr-only">Usuario</label>
+                    <input type="text" name="Usuario" id="inputUsuario" class="form-control my-form-control" placeholder="-Nombre de usuario-">
                 </div>
-                <button class="btn-block my-btn-block" type="submit" value="Ingresar">Ingresar</button>
-                <br>
-                <img class="lista" src="img/lista.jpg">
+
+                <div id="demo1"></div>
+                <div class="input-group mb-1">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-at my-fa-fa-user"></i></span>
+                    </div>
+                    <label for="inputEmail" class="sr-only">Correo electrónico</label>
+                    <input type="email" name="gmail" id="inputEmail" class="form-control my-form-control" placeholder="-Correo electrónico-">
+                </div>
+
+                <div id="demo2"></div>
+                <div class="input-group mb-1">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-lock my-fa-fa-user"></i></span>
+                    </div>
+                    <label for="inputPassword" class="sr-only" id="pass">Contraseña </label>
+                    <input type="password" id="inputPassword" class="form-control my-form-control" placeholder="-Contraseña-">
+                    <span class="input-group-text"><img src="img/eye-slash-solid.svg" class="fa fa-eye" id="bot"></i> </span>
+                </div>
+                <div class="input-group mb-1">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-unlock-alt my-fa-fa-user"></i></span>
+                    </div>
+                    <label for="inputPassword" class="sr-only" id="pass2">Contraseña </label>
+                    <input type="password" id="inputPassword2" class="form-control my-form-control" placeholder="-Confirme la contraseña-">
+                </div>
+
+
+                <div class="checkbox mb-2">
+                    <label>
+                <input type="checkbox" value="remember-me"> Remember me </label>
+                </div>
+                <button class="btn btn-primary" type="submit" value="Ingresar" onclick="mostrarUsuario()">  Ingresar  <i class="fa fa-check"></i></button>
             </form>
         </div>
     </div>

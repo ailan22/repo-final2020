@@ -148,13 +148,11 @@ a.custom-card:hover {
     color: orange;
 }
 
-.my-form-signin {
-    width: 200px;
-}
-
 .my-alert-danger {
+    border-color: rgba(41, 40, 40, 0.1);
+    background-color: rgba(85, 85, 87, 0.432);
     width: 200px;
-    height: 530px;
+    height: 590px;
     box-shadow: 0.5em 0.2em 0.5em 0.5em rgba(41, 40, 40, 0.1);
     border-radius: 20px;
 }
@@ -163,7 +161,7 @@ a.custom-card:hover {
     width: 400px;
     height: 160px;
     border-radius: 10px;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 .my-form-control {
@@ -171,27 +169,40 @@ a.custom-card:hover {
     position: relative;
     box-sizing: border-box;
     height: auto;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 10px;
-}
-
-.my-btn-block {
-    display: block;
-    background-color: rgba(190, 55, 112, 0.5);
-    width: 250px;
-    font-weight: bold;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 5px;
-}
-
-.lista {
     width: 350px;
+    font-size: 16px;
 }
 
 #demo,
-#demo1 {
+#demo1,
+#demo2 {
     font-weight: bold;
-    color: red;
+    color: rgb(255, 0, 0);
+    font-family: 'Courier New';
+}
+
+.my-fa-fa-user {
+    height: 10px;
+    width: 10px;
+}
+
+#bot {
+    height: 20px;
+    width: 25px;
+}
+
+.my-font-weight-normal {
+    color: rgb(1, 1, 20);
+    font-weight: bold;
+    font-family: 'Times New Roman';
+}
+
+.my-size {
+    width: 1000px;
+}
+
+.imagen-user {
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
 }
