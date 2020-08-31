@@ -57,16 +57,8 @@ function sortProducts(criteria, array) {
     return result;
 }
 
-function showProductsList() {
-
-    let htmlContentToAppend = "";
-    for (let i = 0; i < currentProductsArray.length; i++) {
-        let producto = currentProductsArray[i];
-
-        if (((minPrice == undefined) || (minPrice != undefined && parseInt(producto.cost) >= minPrice)) &&
-            ((maxPrice == undefined) || (maxPrice != undefined && parseInt(producto.cost) <= maxPrice))) {
-
-            htmlContentToAppend += `
+function appendElement(producto) {
+    return `        
         <div class="list-group-item">
             <div class="row">
                 <div class="col-3">
@@ -83,7 +75,20 @@ function showProductsList() {
             </div>
         </div>
         `
+}
+
+function showProductsList() {
+
+    let htmlContentToAppend = "";
+    for (let i = 0; i < currentProductsArray.length; i++) {
+        let producto = currentProductsArray[i];
+        if (((minPrice == undefined) || (minPrice != undefined && parseInt(producto.cost) >= minPrice)) &&
+            ((maxPrice == undefined) || (maxPrice != undefined && parseInt(producto.cost) <= maxPrice))) {
+            htmlContentToAppend += appendElement(producto)
         }
+    }
+    if (htmlContentToAppend == "") {
+        htmlContentToAppend = "No hay ningún elemento con los precios introducidos";
     }
     document.getElementsByClassName("container p-5")[0].innerHTML = htmlContentToAppend;
 }
@@ -93,26 +98,8 @@ function showProductsListFilterName(name) {
     let htmlContentToAppend = "";
     for (let i = 0; i < currentProductsArray.length; i++) {
         let producto = currentProductsArray[i];
-
         if (producto.name.toLowerCase().includes(name.toLowerCase())) {
-
-            htmlContentToAppend += `
-        <div class="list-group-item">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">` + producto.name + `</h4>
-                        <small class="text-muted">` + producto.soldCount + ` vendidos </small>
-                    </div>
-                    <div>` + "Precio: " + producto.currency + " " + producto.cost + `</div>
-                    <p class="mb-1">` + producto.description + `</p>
-                </div>
-            </div>
-        </div>
-        `
+            htmlContentToAppend += appendElement(producto);
         }
     }
     if (htmlContentToAppend == "") {
@@ -194,11 +181,11 @@ document.addEventListener("DOMContentLoaded", function(e) {
     });
 
     document.getElementById("searching").addEventListener("keyup", function() {
-        var name = document.getElementById("searching").value;
-        if (name != "") {
-            showProductsListFilterName(name);
-        } else {
+        var valor = document.getElementById("searching").value;
+        if (valor == "") {
             showProductsList();
+        } else {
+            showProductsListFilterName(valor);
         }
     });
 });

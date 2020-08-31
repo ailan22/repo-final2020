@@ -1,7 +1,7 @@
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e) {});
+
 var boton = document.getElementById("bot");
 var input = document.getElementById("inputPassword");
 var input2 = document.getElementById("inputPassword2");
@@ -40,8 +40,10 @@ function validarForm() {
     mensajeError["Usuario"] = usuario.value === null || usuario.value === "";
     mensajeError["Correo"] = correo.value === null || correo.value === "";
     mensajeError["Contraseña"] = contra.value === null || contra.value === "";
-    mensajeError["CantCaract"] = contra.value.length <= 6 || contra2.value.length <= 6;
-    mensajeError["ContraseñasIguales"] = contra.value !== contra2.value || contra2.value === null || contra2.value === "";
+    mensajeError["Contraseña2"] = contra2.value === null || contra2.value === "";
+    mensajeError["CantCaract"] = contra.value.length <= 6;
+    mensajeError["CantCaract2"] = contra2.value.length <= 6;
+    mensajeError["ContraseñasIguales"] = contra.value !== contra2.value;
 
     if (mensajeError["Usuario"]) {
         errorUsuario.innerHTML = "Ingresa un nombre de usuario";
@@ -57,6 +59,14 @@ function validarForm() {
         correo.style.borderColor = "green";
     }
 
+    if (mensajeError["ContraseñasIguales"]) {
+        errorContraseña.innerHTML = "Las contraseñas no coinciden";
+        contra.style.borderColor = "red";
+        contra2.style.borderColor = "red";
+    } else {
+        contra.style.borderColor = "green";
+        contra2.style.borderColor = "green";
+    }
     if (mensajeError["Contraseña"]) {
         errorContraseña.innerHTML = "Ingresa la contraseña";
         contra.style.borderColor = "red";
@@ -64,18 +74,22 @@ function validarForm() {
         if (mensajeError["CantCaract"]) {
             errorContraseña.innerHTML = "La contraseña debe tener mas de 6 caracteres";
             contra.style.borderColor = "red";
-            contra2.style.borderColor = "red";
         } else {
             contra.style.borderColor = "green";
         }
     }
-    if (mensajeError["ContraseñasIguales"]) {
-        errorContraseña.innerHTML = "Las contraseñas no coinciden";
-        contra.style.borderColor = "red";
+    if (mensajeError["Contraseña2"]) {
+        errorContraseña.innerHTML = "Ingresa la contraseña";
         contra2.style.borderColor = "red";
     } else {
-        contra2.style.borderColor = "green";
+        if (mensajeError["CantCaract2"]) {
+            errorContraseña.innerHTML = "La contraseña debe tener mas de 6 caracteres";
+            contra2.style.borderColor = "red";
+        } else {
+            contra2.style.borderColor = "green";
+        }
     }
+
 
     return !mensajeError["Usuario"] && !mensajeError["Correo"] && !mensajeError["Contraseña"] && !mensajeError["CantCaract"] && !mensajeError["ContraseñasIguales"];
 
