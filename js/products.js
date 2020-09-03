@@ -53,9 +53,10 @@ function sortProducts(criteria, array) {
     }
     return result;
 }
-
+//Mostrar la lista de productos
 function appendElement(producto) {
-    return `        
+    return `      
+    <a href="product-info.html" class="list-group-item list-group-item-action">  
         <div class="list-group-item">
             <div class="row">
                 <div class="col-3">
@@ -71,9 +72,10 @@ function appendElement(producto) {
                 </div>
             </div>
         </div>
+        </a>
         `
 }
-
+//Filtrar por precios
 function showProductsList() {
     let htmlContentToAppend = "";
     for (let i = 0; i < currentProductsArray.length; i++) {
@@ -88,7 +90,7 @@ function showProductsList() {
     }
     document.getElementsByClassName("container p-5")[0].innerHTML = htmlContentToAppend;
 }
-
+//Buscar por nombre
 function showProductsListFilterName(name) {
     let htmlContentToAppend = "";
     for (let i = 0; i < currentProductsArray.length; i++) {
@@ -102,6 +104,14 @@ function showProductsListFilterName(name) {
     }
     document.getElementsByClassName("container p-5")[0].innerHTML = htmlContentToAppend;
 }
+document.getElementById("searching").addEventListener("keyup", function() {
+    var valor = document.getElementById("searching").value;
+    if (valor == "") {
+        showProductsList();
+    } else {
+        showProductsListFilterName(valor);
+    }
+});
 
 function sortAndShowProducts(sortCriteria, productsArray) {
     currentSortCriteria = sortCriteria;
@@ -163,12 +173,5 @@ document.addEventListener("DOMContentLoaded", function(e) {
         showProductsList();
     });
 
-    document.getElementById("searching").addEventListener("keyup", function() {
-        var valor = document.getElementById("searching").value;
-        if (valor == "") {
-            showProductsList();
-        } else {
-            showProductsListFilterName(valor);
-        }
-    });
+
 });

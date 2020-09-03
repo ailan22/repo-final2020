@@ -206,3 +206,12 @@ a.custom-card:hover {
     width: 30px;
     border-radius: 15px;
 }
+
+.my-img {
+    width: 60px;
+    height: 60px;
+}
+
+.my-comment {
+    border-color: dodgerblue 2px solid;
+}
