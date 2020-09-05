@@ -28,39 +28,52 @@
         </div>
     </nav>
     <div class="container p-5">
-        <p id="container p-5"></p>
+        <div class="container">
+            <p id="container p-5"></p>
+            <p id="imagenes"></p>
+        </div>
+        <div>
+            <form id="texto">
 
-    </div>
-    <div>
-        <div class="container">
-            <i class="fa fa-pencil prefix"><p class="text-white bg-primary">Comentario</p></i>
+                <p class="clasificacion">
+                    <div id="errorEstrellas"></div>
+                    <input id="radio1" type="radio" name="estrellas" value="5" class="estrellas">
+                    <label for="radio1">★</label>
+                    <input id="radio2" type="radio" name="estrellas" value="4">
+                    <label for="radio2">★</label>
+                    <input id="radio3" type="radio" name="estrellas" value="3">
+                    <label for="radio3">★</label>
+                    <input id="radio4" type="radio" name="estrellas" value="2">
+                    <label for="radio4">★</label>
+                    <input id="radio5" type="radio" name="estrellas" value="1">
+                    <label for="radio5">★</label>
+                </p>
+            </form>
+            <div class="form-group">
+                <div id="errorComent"></div>
+                <i class="fas fa-pencil-alt"></i>
+                <textarea class="form-control col-sm-8" id="comment" rows="5" placeholder="Comparte tu comentario..."></textarea>
+                <button type="button" class="btn btn-primary btn-block col-sm-8 mb-5" id="butt" onclick="validarComent(); validateStars()"> Enviar </button>
+            </div>
         </div>
-        <div class="container p-2">
-            <textarea type="text" class="md-textarea"></textarea>
-            <p class="text-white bg-primary">Valoración</p>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-        </div>
-    </div>
-    <div id="comentarios"></div>
-    <footer class="text-muted">
-        <div class="container">
-            <p class="float-right">
-                <a href="#">Volver arriba</a>
-            </p>
-            <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-            <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-        </div>
-    </footer>
-    <div id="spinner-wrapper">
-        <div class="lds-ring">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+        <p class="text-black my-bg-dark">Opiniones sobre el producto</p>
+        <div id="comentarios" class="container"></div>
+        <footer class="text-muted">
+            <div class="container">
+                <p class="float-right">
+                    <a href="#">Volver arriba</a>
+                </p>
+                <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+                <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+            </div>
+        </footer>
+        <div id="spinner-wrapper">
+            <div class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
     </div>
     <script src="js/jquery-3.4.1.min.js"></script>
