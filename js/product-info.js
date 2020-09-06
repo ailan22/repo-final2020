@@ -38,8 +38,6 @@ function validateStars() {
     }
 };
 
-let appenImages = [];
-
 function appenProduct(lista) {
 
     let htmlContentToAppend = `
@@ -52,11 +50,11 @@ function appenProduct(lista) {
                                 <small class="font-weight-bold">` + lista.currency + lista.cost + ` </small>
                                 <small class="text-muted font-weight-bold">` + lista.soldCount + ` vendidos</small>
                             </div>                            
-                                 <p class="mb-1">` + lista.description + `</p>
-                            
+                                 <p class="mb-1">` + lista.description + `</p>                            
                         </div>
                     </div>   
                     `
+    listImages(lista.images);
     document.getElementById("container p-5").innerHTML = htmlContentToAppend;
 }
 
@@ -65,33 +63,35 @@ function listComment(array) {
     let htmlContentToAppend2 = "";
     for (let x = 0; x < array.length; x++) {
         let comment = array[x];
+        estrellas = "";
+        for (let y = 1; y <= 5; y++) {
+            if (y <= comment.score) {
+                estrellas += `<i class = "fas fa-star blue-text checked"> </i>`
+            } else {
+                estrellas += `<i class = "fas fa-star blue-text"> </i>`
+            }
+        }
 
         htmlContentToAppend2 += `
     <div class="border border-top-0 mb-1">
       <ul class="list-unstyled">
         <li class="media">
-          <img class="my-img" src="img/usuario-comentarios.jpg">
-          <div class="media-body">            
+            <img class="my-img" src="img/usuario-comentarios.jpg" />
+            <div class="media-body">            
                <div class="container row">
                     <h5 class="col-7 font-weight-bold">` + comment.user + `</h5>   
                     <p class="col-5 text-right font-italic">` + "Fecha: " + comment.dateTime + `</p>          
-               </div>
-            <div class="row container">
-             <p class="align-text-top col-10">` + comment.description + `</p>  
-             <div class="aling-right">     
-                <i class="fas fa-star blue-text"> </i>
-                <i class="fas fa-star blue-text"> </i>
-                <i class="fas fa-star blue-text"> </i>
-                <i class="fas fa-star blue-text"> </i>
-                <i class="fas fa-star blue-text"> </i>  
-                </div> 
-              </div>                    
+                </div>
+                <div class="row container">
+                    <p class="align-text-top col-10">` + comment.description + `</p>  
+                    <p class="align-text-top col-10">` + comment.score + `</p> 
+                    <div class="aling-right"> ` + estrellas + `
+                    </div> 
+                </div>                    
             </div>
-          </div>
         </li>        
       </ul>
-    </div>
-        `
+    </div>`
     }
     document.getElementById("comentarios").innerHTML = htmlContentToAppend2;
 };
@@ -102,8 +102,10 @@ function listImages(array2) {
     for (let z = 0; z < array2.length; z++) {
         let imag = array2[z];
 
-        htmlContentToAppend3 += `
-        <div class="container"> ` + imag.images + "dasdad" + `</div>
+        htmlContentToAppend3 += `        
+        <div class="container"> 
+            <img src="` + imag + `"></img>
+        </div>
         `
     }
     document.getElementById("imagenes").innerHTML = htmlContentToAppend3;
@@ -115,7 +117,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
         if (resultObj.status === "ok") {
             //Muestro las categorías ordenadas
             appenProduct(resultObj.data);
-            listImages(resultObj.data);
 
         }
     });
