@@ -83,8 +83,7 @@ function listComment(array) {
                     <p class="col-5 text-right font-italic">` + "Fecha: " + comment.dateTime + `</p>          
                 </div>
                 <div class="row container">
-                    <p class="align-text-top col-10">` + comment.description + `</p>  
-                    <p class="align-text-top col-10">` + comment.score + `</p> 
+                    <p class="align-text-top col-10">` + comment.description + `</p>                       
                     <div class="aling-right"> ` + estrellas + `
                     </div> 
                 </div>                    
@@ -102,10 +101,14 @@ function listImages(array2) {
     for (let z = 0; z < array2.length; z++) {
         let imag = array2[z];
 
-        htmlContentToAppend3 += `        
-        <div class="container"> 
-            <img src="` + imag + `"></img>
-        </div>
+        htmlContentToAppend3 += `  
+   <div class="container">
+     <div class="row">
+      <div class="md-4">      
+        <img src="` + imag + `" class="img-thumbnail"></img>      
+      </div>    
+    </div>    
+  </div>
         `
     }
     document.getElementById("imagenes").innerHTML = htmlContentToAppend3;
@@ -129,4 +132,20 @@ document.addEventListener("DOMContentLoaded", function(e) {
             listComment(resultObj.data);
         }
     });
+});
+
+$('.galeria__img').click(function(e){
+    var img = e.target.src;
+    var modal = '<div class="modal" id="modal"><img src="'+ img + '" class="modal__img"><div class="modal__boton" id="modal__boton">X</div></div>';
+    $('body').append(modal);
+    $('#modal__boton').click(function(){
+        $('#modal').remove();
+    })
+});
+
+
+$(document).keyup(function(e){
+    if (e.which==27) {
+        $('#modal').remove();
+    }
 });
