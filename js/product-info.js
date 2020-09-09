@@ -16,7 +16,7 @@ function validarComent() {
         document.getElementById("errorComent").innerHTML = "";
         comment.style.borderColor = "green";
         boton.style.backgroundColor = "green";
-        boton.style.borderColor = "green";
+        boton.style.borderColor = "green";          
     }
 };
 
@@ -34,7 +34,7 @@ function validateStars() {
         document.getElementById("errorEstrellas").innerHTML = "Debe ingresar su valoración";
         return formValid;
     } else {
-        document.getElementById("errorEstrellas").innerHTML = "";
+        document.getElementById("errorEstrellas").innerHTML = "";          
     }
 };
 
@@ -55,7 +55,7 @@ function appenProduct(lista) {
                     </div>   
                     `
     listImages(lista.images);
-    document.getElementById("container p-5").innerHTML = htmlContentToAppend;
+    document.getElementById("descripcion").innerHTML = htmlContentToAppend;
 }
 
 function listComment(array) {
@@ -101,19 +101,20 @@ function listImages(array2) {
     for (let z = 0; z < array2.length; z++) {
         let imag = array2[z];
 
-        htmlContentToAppend3 += `  
-   <div class="container">
-     <div class="row">
-      <div class="md-4">      
-        <img src="` + imag + `" class="img-thumbnail"></img>      
-      </div>    
-    </div>    
-  </div>
+        htmlContentToAppend3 += `    
+    <div class="container">
+      
+        <ul>
+            <li style="float: left;width: 20%;list-style-type:none;" class="loc-caption row">                
+                <img class="my-column border border-secundary" src="` + imag + `"/> 
+            </li> 
+        </ul>    
+      
+    </div>  
         `
     }
     document.getElementById("imagenes").innerHTML = htmlContentToAppend3;
 };
-
 
 document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj) {
@@ -134,18 +135,17 @@ document.addEventListener("DOMContentLoaded", function(e) {
     });
 });
 
-$('.galeria__img').click(function(e){
-    var img = e.target.src;
-    var modal = '<div class="modal" id="modal"><img src="'+ img + '" class="modal__img"><div class="modal__boton" id="modal__boton">X</div></div>';
-    $('body').append(modal);
-    $('#modal__boton').click(function(){
-        $('#modal').remove();
+
+
+document.querySelectorAll(".modal-container img").forEach(el=>{
+    el.addEventListener("click", function(ev){
+        ev.stopPropagation();
+        this.parentNode.classList.add("active");
     })
-});
+})
 
-
-$(document).keyup(function(e){
-    if (e.which==27) {
-        $('#modal').remove();
-    }
-});
+document.querySelectorAll(".modal-container").forEach(el=>{
+    el.addEventListener("click", function(ev){
+        this.classList.remove("active");
+    })
+})
