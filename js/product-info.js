@@ -2,7 +2,7 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 //document.addEventListener("DOMContentLoaded", function(e) {});
-function validarComent() {
+function validateComent() {
     var boton = document.getElementById("butt");
     var comentario = document.getElementById("comment").value;
 
@@ -16,8 +16,10 @@ function validarComent() {
         document.getElementById("errorComent").innerHTML = "";
         comment.style.borderColor = "green";
         boton.style.backgroundColor = "green";
-        boton.style.borderColor = "green";          
-    }
+        boton.style.borderColor = "green";     
+        return true;     
+    }    
+    
 };
 
 function validateStars() {
@@ -34,9 +36,18 @@ function validateStars() {
         document.getElementById("errorEstrellas").innerHTML = "Debe ingresar su valoración";
         return formValid;
     } else {
-        document.getElementById("errorEstrellas").innerHTML = "";          
+        document.getElementById("errorEstrellas").innerHTML = "";  
+        return true;        
     }
 };
+
+function validateComentAndStars(){
+    if (validateComent() && validateStars()){
+        document.getElementById("mensaje").innerHTML = "¡Mensaje enviado correctamente!"; 
+    }else{
+        document.getElementById("mensaje").innerHTML = "";
+    }
+}
 
 function appenProduct(lista) {
 
@@ -102,14 +113,10 @@ function listImages(array2) {
         let imag = array2[z];
 
         htmlContentToAppend3 += `    
-    <div class="container">
-      
-        <ul>
-            <li style="float: left;width: 20%;list-style-type:none;" class="loc-caption row">                
-                <img class="my-column border border-secundary" src="` + imag + `"/> 
-            </li> 
-        </ul>    
-      
+    <div class="container">             
+            <div style="float: left;width: 20%;list-style-type:none;" class="loc-caption row">                
+                <img class="my-column border border-secundary zoom" src="` + imag + `"/> 
+            </div>            
     </div>  
         `
     }
@@ -119,7 +126,6 @@ function listImages(array2) {
 document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
-            //Muestro las categorías ordenadas
             appenProduct(resultObj.data);
 
         }
@@ -129,23 +135,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
-            //Muestro las categorías ordenadas
             listComment(resultObj.data);
         }
     });
 });
-
-
-
-document.querySelectorAll(".modal-container img").forEach(el=>{
-    el.addEventListener("click", function(ev){
-        ev.stopPropagation();
-        this.parentNode.classList.add("active");
-    })
-})
-
-document.querySelectorAll(".modal-container").forEach(el=>{
-    el.addEventListener("click", function(ev){
-        this.classList.remove("active");
-    })
-})

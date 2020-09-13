@@ -268,34 +268,15 @@ input[type="radio"]:checked~label {
     margin: 50px;
 }
 
-.modal-container{
-    display: inline-block;
-    position: relative;
+.my-alert-success{
+    background-color: rgb(111, 241, 111);
+    font-weight: bold;
+    text-align: center;
 }
 
-.modal-container.active {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    left: 0;
-    top: 0;
-    overflow-y: scroll;
+.zoom{
+    transition: transform .5s;
 }
-
-.modal-container img{
-    z-index: 1;
-}
-
-.modal-container::after{
-    content: "";
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.20);
-    z-index: 0;
+.zoom:hover{
+transform: scale(2.4);
 }

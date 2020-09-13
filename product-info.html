@@ -32,26 +32,25 @@
             <p id="descripcion"></p>            
         </div>     
                
-        <div class="container mb-5">
-            <div class="modal-container">
-            <div id="imagenes"></div>
+        <div class="container mb-5">            
+            <div id="imagenes"></div>               
         </div>
-        </div>
-
+        
         <div class="row form-group container">
-            <div class="col-8" id="errorComent"></div>            
+            <p class="alert-success" id="mensaje"></p>
+            <div class="col" id="errorComent"></div>            
         </div>
                   
         <div class="row">                       
             <textarea class="form-control col-8" id="comment" rows="5" placeholder="Comparte tu comentario..."></textarea>
             <i class="fas fa-pencil-alt"></i> 
-            <button type="button" class="btn btn-primary btn-block col-sm-8 mb-4" id="butt" onclick="validarComent(); validateStars()"> Enviar </button>
+            <button type="button" class="btn btn-primary btn-block col-sm-8 mb-4" id="butt" onclick="validateComent(); validateStars(); validateComentAndStars()"> Enviar </button>
         </div>
-        <div>
+        <div class="container">
             <form id="texto">
                 <div class="clasificacion">
-                    <div id="errorEstrellas"></div>
-                    <input id="radio1" type="radio" name="estrellas" value="5" class="estrellas">
+                    <p id="errorEstrellas"></p>
+                    <input id="radio1" type="radio" name="estrellas" value="5">
                     <label for="radio1">★</label>
                     <input id="radio2" type="radio" name="estrellas" value="4">
                     <label for="radio2">★</label>
@@ -87,7 +86,7 @@
     </div>
   
     <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>    
     <script src="js/init.js"></script>
     <script src="js/product-info.js"></script>
 
