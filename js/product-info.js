@@ -2,6 +2,8 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 //document.addEventListener("DOMContentLoaded", function(e) {});
+
+//validación de comentarios
 function validateComent() {
     var boton = document.getElementById("butt");
     var comentario = document.getElementById("comment").value;
@@ -22,6 +24,7 @@ function validateComent() {
     
 };
 
+//validación de estrellas
 function validateStars() {
     var radios = document.getElementsByName("estrellas");
     var formValid = false;
@@ -40,7 +43,7 @@ function validateStars() {
         return true;        
     }
 };
-
+//validación de comentarios y estrellas
 function validateComentAndStars(){
     if (validateComent() && validateStars()){
         document.getElementById("mensaje").innerHTML = "¡Mensaje enviado correctamente!"; 
@@ -48,6 +51,24 @@ function validateComentAndStars(){
         document.getElementById("mensaje").innerHTML = "";
     }
 }
+
+//Muestro producto con su descripción
+function listImages(array2) {
+
+    let htmlContentToAppend3 = "";
+    for (let z = 0; z < array2.length; z++) {
+        let imag = array2[z];
+
+        htmlContentToAppend3 += `    
+    <div class="container">             
+            <div style="float: left;width: 20%;list-style-type:none;" class="loc-caption row">                
+                <img class="my-column border border-secundary zoom" src="` + imag + `"/> 
+            </div>            
+    </div>  
+        `
+    }
+    document.getElementById("imagenes").innerHTML = htmlContentToAppend3;
+};
 
 function appenProduct(lista) {
 
@@ -69,6 +90,7 @@ function appenProduct(lista) {
     document.getElementById("descripcion").innerHTML = htmlContentToAppend;
 }
 
+//Muestro los comentarios sobre el producto
 function listComment(array) {
 
     let htmlContentToAppend2 = "";
@@ -106,22 +128,19 @@ function listComment(array) {
     document.getElementById("comentarios").innerHTML = htmlContentToAppend2;
 };
 
-function listImages(array2) {
-
-    let htmlContentToAppend3 = "";
-    for (let z = 0; z < array2.length; z++) {
-        let imag = array2[z];
-
-        htmlContentToAppend3 += `    
-    <div class="container">             
-            <div style="float: left;width: 20%;list-style-type:none;" class="loc-caption row">                
-                <img class="my-column border border-secundary zoom" src="` + imag + `"/> 
-            </div>            
-    </div>  
-        `
-    }
-    document.getElementById("imagenes").innerHTML = htmlContentToAppend3;
-};
+function productRelated(autos){
+let htmlContentToAppend4="";
+for(i=0; i<autos.length; i++){
+    let a=autos[1];
+    htmlContentToAppend4 += `
+    <div class="col">    
+        <img class="my-column2 border border-secundary zoom" src="` + a.imgSrc + `"/>
+        <h4 class="">` + a.name + `</h4>
+    </div>
+    `
+}
+document.getElementById("product-relac").innerHTML = htmlContentToAppend4;
+}
 
 document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj) {
@@ -136,6 +155,14 @@ document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
             listComment(resultObj.data);
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function(e) {
+    getJSONData(PRODUCTS_URL).then(function(resultObj) {
+        if (resultObj.status === "ok") {
+            productRelated(resultObj.data);
         }
     });
 });

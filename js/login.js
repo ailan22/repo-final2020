@@ -94,7 +94,7 @@ function validarForm() {
     return !mensajeError["Usuario"] && !mensajeError["Correo"] && !mensajeError["Contraseña"] && !mensajeError["CantCaract"] && !mensajeError["ContraseñasIguales"];
 
 };
-
+//mostrar nombre de usuario 
 miStorage = window.sessionStorage;
 
 function mostrarUsuario() {
