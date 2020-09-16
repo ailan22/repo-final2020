@@ -215,7 +215,7 @@ a.custom-card:hover {
 
 .my-bg-dark {
     background-color: rgba(185, 185, 185, 0.863);
-    width: 1030px;
+    width: 1040px;
     font-weight: bold;
     text-align: center;
 }
@@ -269,9 +269,12 @@ input[type="radio"]:checked~label {
 }
 
 .my-column2{
-    width: 100px;
+    width: 80px;
 }
 
+.my-btn{
+    color: white;
+}
 .my-alert-success{
     background-color: rgb(111, 241, 111);
     font-weight: bold;

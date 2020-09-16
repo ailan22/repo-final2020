@@ -52,7 +52,7 @@ function validateComentAndStars(){
     }
 }
 
-//Muestro producto con su descripción
+//Muestro producto con su descripción e imágenes
 function listImages(array2) {
 
     let htmlContentToAppend3 = "";
@@ -83,8 +83,8 @@ function appenProduct(lista) {
                                 <small class="text-muted font-weight-bold">` + lista.soldCount + ` vendidos</small>
                             </div>                            
                                  <p class="mb-1">` + lista.description + `</p>                            
-                        </div>
-                    </div>   
+                            </div>
+                        </div>   
                     `
     listImages(lista.images);
     document.getElementById("descripcion").innerHTML = htmlContentToAppend;
@@ -111,7 +111,7 @@ function listComment(array) {
         <li class="media">
             <img class="my-img" src="img/usuario-comentarios.jpg" />
             <div class="media-body">            
-               <div class="container row">
+               <div class="row container">
                     <h5 class="col-7 font-weight-bold">` + comment.user + `</h5>   
                     <p class="col-5 text-right font-italic">` + "Fecha: " + comment.dateTime + `</p>          
                 </div>
@@ -125,19 +125,64 @@ function listComment(array) {
       </ul>
     </div>`
     }
-    document.getElementById("comentarios").innerHTML = htmlContentToAppend2;
+    
+    document.getElementById("comentarios").innerHTML = htmlContentToAppend2 + showComent();
 };
 
+var comment2=document.getElementById("comment");
+miStorage = window.sessionStorage;
+
+function showComent() {
+    
+    var comment2 = document.getElementById("comment").value;
+    miStorage.setItem("keyComment", comment2);      
+    
+    var myComment = `
+    <div class="border border-top-0 mb-1">
+      <ul class="list-unstyled">
+        <li class="media">
+            <img class="my-img" src="img/usuario-comentarios.jpg" />
+            <div class="media-body">                                               
+                <div class="row container">
+                    <p class="align-text-top col-10">` + comment2 + `</p>                                           
+                    </div> 
+                </div>                    
+            </div>
+        </li>        
+      </ul>
+    </div>`
+    return myComment;
+};
+
+/*miStorage = window.sessionStorage;
+document.addEventListener("DOMContentLoaded", function(e) {
+    document.getElementById("comentarios").innerHTML = miStorage.getItem("keyComment")
+});*/
+
+//Muestro productos relacionados
 function productRelated(autos){
 let htmlContentToAppend4="";
 for(i=0; i<autos.length; i++){
-    let a=autos[1];
-    htmlContentToAppend4 += `
-    <div class="col">    
-        <img class="my-column2 border border-secundary zoom" src="` + a.imgSrc + `"/>
-        <h4 class="">` + a.name + `</h4>
-    </div>
+    let a=autos[i];    
+    if(i == 1 || i == 3) {    
+        htmlContentToAppend4 += `    
+    <div width: 10%; class="border border-top-0 mb-1">
+    <ul class="list-unstyled">
+    <li class="media">    
+    <img class="my-column2 zoom" src="` + a.imgSrc + `"/>
+    <div class="media-body">                
+        <div class="row container">            
+          <h6 class="col-4">` + a.name + `</h6>
+          <small class="text-muted col-7">` + "Precio: " + a.currency + " " + a.cost + `</small>
+          <small class="text-muted text-right">` + a.soldCount + ` vendidos </small>          
+          <p class="align-text-top col-10">` + a.description + `</p>
+        </div>          
+    </div> 
+    </li>
+    </ul>   
+    </div>        
     `
+    }    
 }
 document.getElementById("product-relac").innerHTML = htmlContentToAppend4;
 }

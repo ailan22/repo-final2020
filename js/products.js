@@ -172,6 +172,4 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }
         showProductsList();
     });
-
-
 });
