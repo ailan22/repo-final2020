@@ -78,9 +78,9 @@ function appenProduct(lista) {
                                 <p class="text-black my-bg-dark">` + "Descripción" + ` </p>
                             </div>
                             <div class="d-flex w-100 justify-content-between">
-                                <h4 class="mb-5 font-weight-bold">` + lista.name + `</h4>
-                                <small class="font-weight-bold">` + lista.currency + lista.cost + ` </small>
-                                <small class="text-muted font-weight-bold">` + lista.soldCount + ` vendidos</small>
+                                <h5 class="mb-5 font-weight-bold">` + lista.name + `</h5>
+                                <small class="font-weight">` + lista.currency + lista.cost + ` </small>
+                                <small class="font-weight">` + lista.soldCount + ` vendidos</small>
                             </div>                            
                                  <p class="mb-1">` + lista.description + `</p>                            
                             </div>
@@ -105,7 +105,7 @@ function listComment(array) {
             }
         }
 
-        htmlContentToAppend2 += `
+        htmlContentToAppend2 += `        
     <div class="border border-top-0 mb-1">
       <ul class="list-unstyled">
         <li class="media">
@@ -126,37 +126,44 @@ function listComment(array) {
     </div>`
     }
     
-    document.getElementById("comentarios").innerHTML = htmlContentToAppend2 + showComent();
+    document.getElementById("comentarios").innerHTML = htmlContentToAppend2 + miStorage.getItem("keyComment");
 };
 
-var comment2=document.getElementById("comment");
-miStorage = window.sessionStorage;
+//Mostrar comemtario nuevo
 
-function showComent() {
+/*function showComent() {
+        
+    let commentUser=document.getElementById("comment");
+    miStorage = window.sessionStorage;
+
+    miStorage.setItem("keyComment", commentUser);      
     
-    var comment2 = document.getElementById("comment").value;
-    miStorage.setItem("keyComment", comment2);      
-    
-    var myComment = `
+    return `
     <div class="border border-top-0 mb-1">
       <ul class="list-unstyled">
         <li class="media">
             <img class="my-img" src="img/usuario-comentarios.jpg" />
             <div class="media-body">                                               
                 <div class="row container">
-                    <p class="align-text-top col-10">` + comment2 + `</p>                                           
+                    <p class="align-text-top col-10">` + commentUser + `</p>                                           
                     </div> 
                 </div>                    
             </div>
         </li>        
       </ul>
-    </div>`
-    return myComment;
+    </div>`       
+};*/
+miStorage = window.sessionStorage;
+
+function showComent() {
+
+    var comment2 = document.getElementById("comment").value;
+    miStorage.setItem("keyComment", comment2);    
 };
 
 /*miStorage = window.sessionStorage;
 document.addEventListener("DOMContentLoaded", function(e) {
-    document.getElementById("comentarios").innerHTML = miStorage.getItem("keyComment")
+    document.getElementById("comentarios").innerHTML = miStorage.getItem("keyComment");    
 });*/
 
 //Muestro productos relacionados
@@ -166,21 +173,27 @@ for(i=0; i<autos.length; i++){
     let a=autos[i];    
     if(i == 1 || i == 3) {    
         htmlContentToAppend4 += `    
-    <div width: 10%; class="border border-top-0 mb-1">
-    <ul class="list-unstyled">
-    <li class="media">    
-    <img class="my-column2 zoom" src="` + a.imgSrc + `"/>
-    <div class="media-body">                
-        <div class="row container">            
-          <h6 class="col-4">` + a.name + `</h6>
-          <small class="text-muted col-7">` + "Precio: " + a.currency + " " + a.cost + `</small>
-          <small class="text-muted text-right">` + a.soldCount + ` vendidos </small>          
-          <p class="align-text-top col-10">` + a.description + `</p>
-        </div>          
-    </div> 
-    </li>
-    </ul>   
-    </div>        
+
+<div class="col">
+    <div class="card-deck col-5" style="float: left;">
+      <div class="card zoom"> 
+      <img class="card-img-top my-card-img-top img-fluid" src="img/PNTA8M.jpg">
+        <div class="text-center">
+          <img src=` + a.imgSrc + ` + class="img-fluid img-auto rounded-circle" height="150px" width="150px">
+        </div>
+        <div class="card-block">
+          <h4 class="card-title col-6">` + a.name + `</h4>
+          <small class="text-muted col-6">` + "Precio: " + a.currency + " " + a.cost + `</small>
+        </div>  
+        <div class="card-block">
+          <p class="card-text col">` + a.description + `</p>
+        </div>
+          <div class="card-footer my-card-footer text-center">
+            <small class="text-muted">` + a.soldCount + ` vendidos </small>                
+          </div>
+        </div>
+    </div>
+</div>
     `
     }    
 }

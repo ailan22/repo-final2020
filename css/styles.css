@@ -214,10 +214,14 @@ a.custom-card:hover {
 }
 
 .my-bg-dark {
-    background-color: rgba(185, 185, 185, 0.863);
-    width: 1040px;
+    background-color: rgba(212, 209, 209, 0.863);
+    width: 1040px;    
     font-weight: bold;
-    text-align: center;
+    text-align: center;      
+    font-size: 16px;
+    text-orientation: initial;
+    box-shadow: 1px 1px 5px rgb(80, 79, 79);
+    border-radius: 5px;
 }
 
 #errorComent,
@@ -269,12 +273,18 @@ input[type="radio"]:checked~label {
 }
 
 .my-column2{
-    width: 80px;
+    width: 100px;
 }
 
 .my-btn{
-    color: white;
+    color: white;    
 }
+
+a.menu:hover {
+    color:#ffffff;
+    background-color: rgb(87, 87, 87);
+}
+
 .my-alert-success{
     background-color: rgb(111, 241, 111);
     font-weight: bold;
@@ -285,5 +295,23 @@ input[type="radio"]:checked~label {
     transition: transform .5s;
 }
 .zoom:hover{
-transform: scale(2.4);
+transform: scale(1.1);
+}
+
+body{
+	font-family: 'Raleway', sans-serif;
+}
+.img-auto{
+	margin-top: -50px;
+	border: 2px solid #ddd;
+}
+
+.my-card-img-top{
+    width: 60em;
+    height: 3.5em;
+}
+
+.my-card-footer{
+    height: 35px;
+    
 }

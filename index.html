@@ -22,17 +22,18 @@
             <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
             <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
             <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-            <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>            
-            <div class="py-2 d-none d-md-inline-block" href="my-profile.html"><img src="img/avatar2.jpg" class="imagen-user">
-              <div class="btn-group dropright">
-                <button type="button" id="user" class="btn my-btn"></button>
-                <button type="button" class="btn my-btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="cart.html">Mi carrito</a>
-                    <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-                    <a class="dropdown-item" href="login.html">Cerrar sesión</a>
+            <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>                        
+            <div class="dropdown">
+                <img src="img/avatar2.jpg" class="imagen-user">
+                <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span id="user"></span>
+                </a>    
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item menu" href="my-profile.html"><i class="far fa-address-card"></i> Perfil</a>
+                    <a class="dropdown-item menu" href="cart.html"><i class="fas fa-cart-plus"></i> Mi carrito</a>
+                    <div class="dropdown-divider"></div>
+                    <a onclick="signOff()" class="dropdown-item menu" href="login.html"><i class="fas fa-power-off"></i> Cerrar sesión</a>
                 </div>
-              </div>
             </div>
         </div>
     </nav>

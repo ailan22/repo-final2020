@@ -22,7 +22,18 @@
             <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
             <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
             <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>            
-            <a class="py-2 d-none d-md-inline-block" href="my-profile.html"><img src="img/avatar2.jpg" class="imagen-user"> <span id="user"> </span></a>
+            <div class="dropdown">
+                <img src="img/Screenshot_20200918_144049.jpg" class="imagen-user">
+                <a class="btn btn-secondary dropdown-toggle my-dropdown-item" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="my-btn" id="user"></span>
+                </a>    
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item menu" href="my-profile.html"><i class="far fa-address-card"></i> Perfil</a>
+                        <a class="dropdown-item menu" href="cart.html"><i class="fas fa-cart-plus"></i> Mi carrito</a>
+                        <div class="dropdown-divider"></div>
+                        <a onclick="signOff()" class="dropdown-item menu" href="login.html"><i class="fas fa-power-off"></i> Cerrar sesión</a>
+                    </div>
+            </div>
         </div>
     </nav>
     <div class="container p-5">
@@ -42,7 +53,7 @@
         <div class="row container">                       
             <textarea class="form-control col-8" id="comment" rows="5" placeholder="Comparte tu comentario..."></textarea>
             <i class="fas fa-pencil-alt"></i> 
-            <button type="button" class="btn btn-primary btn-block col-sm-8 mb-4" id="butt" onclick="validateComent(); validateStars(); validateComentAndStars(), showComent()"> Enviar </button>
+            <button type="button" class="btn btn-primary btn-block col-sm-8 mb-4" id="butt" onclick="validateComent(); validateStars(); validateComentAndStars(); showComent()"> Enviar </button>
         </div>
         <div class="container">
             <form id="texto">
@@ -63,10 +74,11 @@
             </form>
         </div>
 
-        <div>
+        <div class="row mb-5">
             <p class="text-black my-bg-dark">Productos relacionados</p>
-            <p id="product-relac"></p>            
+            <div id="product-relac"></div>            
         </div>
+
         <div>
             <p class="text-black my-bg-dark">Opiniones sobre el producto</p>
             <div id="comentarios"></div>
@@ -94,9 +106,7 @@
     <script src="js/bootstrap.bundle.min.js"></script>    
     <script src="js/init.js"></script>
     <script src="js/product-info.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
 
 </body>
 

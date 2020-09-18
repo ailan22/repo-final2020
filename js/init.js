@@ -12,6 +12,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
     document.getElementById("user").innerHTML = miStorage.getItem("keyUsuario")
 });
 
+function signOff() {
+    miStorage.removeItem("keyUsuario");
+};
+
 const currentURL = window.location.href;
 const urlParams = new URLSearchParams(window.location.search);
 console.log(urlParams);
