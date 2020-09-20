@@ -312,6 +312,13 @@ body{
 }
 
 .my-card-footer{
-    height: 35px;
-    
+    height: 35px;    
 }
+
+.my-btn-secondary{
+    font-weight: bold;
+    color: blue;
+    margin: 20px;
+    background-color: rgb(233, 231, 255);
+}
+

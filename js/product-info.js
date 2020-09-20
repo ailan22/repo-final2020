@@ -46,25 +46,35 @@ function validateStars() {
 //validación de comentarios y estrellas
 function validateComentAndStars(){
     if (validateComent() && validateStars()){
-        document.getElementById("mensaje").innerHTML = "¡Mensaje enviado correctamente!"; 
+        document.getElementById("mensaje").innerHTML = "¡Mensaje enviado correctamente!";
+        return true
     }else{
         document.getElementById("mensaje").innerHTML = "";
+        return false
+    }
+}
+//Función que valida que todo esté validado y muestre el comentario
+function sendComment() {
+    if (validateComentAndStars()) {
+        saveComment()
+        showComment()
     }
 }
 
-//Muestro producto con su descripción e imágenes
+//Muestro imágenes
 function listImages(array2) {
 
     let htmlContentToAppend3 = "";
     for (let z = 0; z < array2.length; z++) {
         let imag = array2[z];
 
-        htmlContentToAppend3 += `    
-    <div class="container">             
+        htmlContentToAppend3 += `            
+        <div class="container">             
             <div style="float: left;width: 20%;list-style-type:none;" class="loc-caption row">                
-                <img class="my-column border border-secundary zoom" src="` + imag + `"/> 
+             <img class="my-column border border-secundary zoom" src="` + imag + `"/> 
             </div>            
-    </div>  
+        </div>  
+        
         `
     }
     document.getElementById("imagenes").innerHTML = htmlContentToAppend3;
@@ -106,99 +116,99 @@ function listComment(array) {
         }
 
         htmlContentToAppend2 += `        
-    <div class="border border-top-0 mb-1">
-      <ul class="list-unstyled">
-        <li class="media">
-            <img class="my-img" src="img/usuario-comentarios.jpg" />
-            <div class="media-body">            
-               <div class="row container">
-                    <h5 class="col-7 font-weight-bold">` + comment.user + `</h5>   
-                    <p class="col-5 text-right font-italic">` + "Fecha: " + comment.dateTime + `</p>          
-                </div>
-                <div class="row container">
-                    <p class="align-text-top col-10">` + comment.description + `</p>                       
-                    <div class="aling-right"> ` + estrellas + `
-                    </div> 
-                </div>                    
-            </div>
-        </li>        
-      </ul>
-    </div>`
+            <div class="border border-top-0 mb-1">
+              <ul class="list-unstyled">
+                <li class="media">
+                    <img class="my-img" src="img/usuario-comentarios.jpg" />
+                    <div class="media-body">            
+                       <div class="row container">
+                            <h5 class="col-7 font-weight-bold">` + comment.user + `</h5>   
+                            <p class="col-5 text-right font-italic">` + "Fecha: " + comment.dateTime + `</p>          
+                        </div>
+                        <div class="row container">
+                            <p class="align-text-top col-10">` + comment.description + `</p>                       
+                            <div class="aling-right"> ` + estrellas + `
+                            </div> 
+                        </div>                    
+                    </div>
+                </li>        
+              </ul>
+            </div>`
     }
-    
-    document.getElementById("comentarios").innerHTML = htmlContentToAppend2 + miStorage.getItem("keyComment");
+    document.getElementById("comentarios").innerHTML = htmlContentToAppend2;
 };
 
-//Mostrar comemtario nuevo
+//Obtener puntaje
+function getScore() {
+    var ele = document.getElementsByName('estrellas');
+    for (i = 0; i < ele.length; i++) {
+        if(ele[i].checked) {
+            return ele[i].value;
+        }
+    }
+}
 
-/*function showComent() {
-        
-    let commentUser=document.getElementById("comment");
-    miStorage = window.sessionStorage;
-
-    miStorage.setItem("keyComment", commentUser);      
-    
-    return `
-    <div class="border border-top-0 mb-1">
-      <ul class="list-unstyled">
-        <li class="media">
-            <img class="my-img" src="img/usuario-comentarios.jpg" />
-            <div class="media-body">                                               
-                <div class="row container">
-                    <p class="align-text-top col-10">` + commentUser + `</p>                                           
-                    </div> 
-                </div>                    
-            </div>
-        </li>        
-      </ul>
-    </div>`       
-};*/
+//Guardar el nuevo comentario
 miStorage = window.sessionStorage;
 
-function showComent() {
-
-    var comment2 = document.getElementById("comment").value;
-    miStorage.setItem("keyComment", comment2);    
+function saveComment() {
+    let current_datetime = new Date()
+    let formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds() 
+    nuevo = {
+        "score": getScore(),
+        "description": document.getElementById("comment").value,
+        "user": miStorage.getItem("keyUsuario"),
+        "dateTime": formatted_date
+    }
+    miStorage.setItem("keyComment", JSON.stringify(nuevo));
 };
 
-/*miStorage = window.sessionStorage;
-document.addEventListener("DOMContentLoaded", function(e) {
-    document.getElementById("comentarios").innerHTML = miStorage.getItem("keyComment");    
-});*/
+//Mostrar el nuevo comentario
+function showComment() {
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj) {
+        if (resultObj.status === "ok") {
+            comments = resultObj.data;
+            el = JSON.parse(miStorage.getItem("keyComment"));
+            comments.push(el);
+            listComment(comments);
+        }
+    });
+};
+
 
 //Muestro productos relacionados
 function productRelated(autos){
-let htmlContentToAppend4="";
-for(i=0; i<autos.length; i++){
-    let a=autos[i];    
-    if(i == 1 || i == 3) {    
-        htmlContentToAppend4 += `    
+    let htmlContentToAppend4="";
+    for(i=0; i<autos.length; i++){
+        let a=autos[i];
+        if(i == 1 || i == 3) {
+            htmlContentToAppend4 += `
+                <div class="col">
+                    <div class="card-deck col-5" style="float: left;">
+                      <div class="card zoom"> 
+                      <img class="card-img-top my-card-img-top img-fluid" src="img/PNTA8M.jpg">
+                        <div class="text-center">
+                          <img src=` + a.imgSrc + ` + class="img-fluid img-auto rounded-circle" height="150px" width="150px">
+                        </div>
+                        <div class="card-block">
+                          <h4 class="card-title col-6">` + a.name + `</h4>
+                          <small class="text-muted col-6">` + "Precio: " + a.currency + " " + a.cost + `</small>
+                        </div>  
+                        <div class="card-block">
+                          <p class="card-text col">` + a.description + `</p>
+                        </div>
+                          <div class="card-footer my-card-footer text-center">
+                            <small class="text-muted">` + a.soldCount + ` vendidos </small>                
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        }
+    }
+    document.getElementById("product-relac").innerHTML = htmlContentToAppend4;
+}
 
-<div class="col">
-    <div class="card-deck col-5" style="float: left;">
-      <div class="card zoom"> 
-      <img class="card-img-top my-card-img-top img-fluid" src="img/PNTA8M.jpg">
-        <div class="text-center">
-          <img src=` + a.imgSrc + ` + class="img-fluid img-auto rounded-circle" height="150px" width="150px">
-        </div>
-        <div class="card-block">
-          <h4 class="card-title col-6">` + a.name + `</h4>
-          <small class="text-muted col-6">` + "Precio: " + a.currency + " " + a.cost + `</small>
-        </div>  
-        <div class="card-block">
-          <p class="card-text col">` + a.description + `</p>
-        </div>
-          <div class="card-footer my-card-footer text-center">
-            <small class="text-muted">` + a.soldCount + ` vendidos </small>                
-          </div>
-        </div>
-    </div>
-</div>
-    `
-    }    
-}
-document.getElementById("product-relac").innerHTML = htmlContentToAppend4;
-}
 
 document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj) {
