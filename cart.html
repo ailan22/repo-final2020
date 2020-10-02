@@ -40,27 +40,148 @@
             <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
             <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
             <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-            <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>            
+            <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
             <div class="dropdown">
                 <img src="img/Screenshot_20200918_144049.jpg" class="imagen-user">
                 <a class="btn btn-secondary dropdown-toggle my-dropdown-item" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="my-btn" id="user"></span>
-                </a>    
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item menu" href="my-profile.html"><i class="far fa-address-card"></i>  Perfil </a>
-                        <a class="dropdown-item menu" href="cart.html"><i class="fas fa-cart-plus"></i>  Mi carrito </a>
-                        <div class="dropdown-divider"></div>
-                        <button data-toggle="modal" data-target="#miModal" class="dropdown-item menu"><i class="fas fa-power-off"></i>  Cerrar sesión </button>
-                    </div>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item menu" href="my-profile.html"><i class="far fa-address-card"></i>  Perfil </a>
+                    <a class="dropdown-item menu" href="cart.html"><i class="fas fa-cart-plus"></i>  Mi carrito </a>
+                    <div class="dropdown-divider"></div>
+                    <button data-toggle="modal" data-target="#miModal" class="dropdown-item menu"><i class="fas fa-power-off"></i>  Cerrar sesión </button>
+                </div>
             </div>
         </div>
     </nav>
     <div class="container p-5">
-        <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-            <h4 class="alert-heading">¡A trabajar! :)</h4>
-            <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-            <hr>
-            <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+        <div class="container p-5">
+            <div class="row mb-5">
+                <p class="text-black my-bg-dark">Datos personales</p>
+                <div id=""></div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fas fa-user-tie"></i></div>
+                        </div>
+                        <input type="text" class="form-control" id="" placeholder="Nombre y apellidos">
+                        <small style="color: red; size: 10px;"><i class="fas fa-asterisk"></i></small>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fas fa-fingerprint"></i></div>
+                        </div>
+                        <input type="number" class="form-control" id="" placeholder="CI">
+                        <small style="color: red; size: 10px;"><i class="fas fa-asterisk"></i></small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fas fa-phone-alt"></i></div>
+                        </div>
+                        <input type="number" class="form-control" id="" placeholder="Teléfono">
+                        <small style="color: red; size: 10px;"><i class="fas fa-asterisk"></i></small>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-3">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fas fa-calendar-alt"></i></div>
+                        </div>
+                        <input type="date" class="form-control" id="" placeholder="Fecha de nacimiento">
+                    </div>
+                </div>
+            </div>
+            <p class="mt-4">Dirección</p>
+            <div class="row">
+                <div class="col">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fas fa-road"></i></div>
+                        </div>
+                        <input type="text" class="form-control" id="" placeholder="Calle">
+                        <small style="color: red; size: 10px;"><i class="fas fa-asterisk"></i></small>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fas fa-home"></i></div>
+                        </div>
+                        <input type="number" class="form-control" id="" placeholder="No">
+                        <small style="color: red; size: 10px;"><i class="fas fa-asterisk"></i></small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fas fa-directions"></i></div>
+                        </div>
+                        <input type="text" class="form-control" id="" placeholder="Esquina">
+                        <small style="color: red; size: 10px;"><i class="fas fa-asterisk"></i></small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fas fa-map-marker-alt"></i></div>
+                        </div>
+                        <select class="form-control">                        
+                        <option hidden>--Departamento--</option>                    
+                        <option value="1">Artigas</option>
+                        <option value="2">Canelones</option>
+                        <option value="3">Cerro Largo</option>
+                        <option value="4">Colonia</option>
+                        <option value="5">Durazno</option>
+                        <option value="6">Flores</option>
+                        <option value="7">Florida</option>
+                        <option value="8">Lavalleja</option>
+                        <option value="9">Maldonado</option>
+                        <option value="10">Montevideo</option>
+                        <option value="11">Paysandú</option>
+                        <option value="12">Río Negro</option>
+                        <option value="13">Rivera</option>
+                        <option value="14">Rocha</option>
+                        <option value="15">Salto</option>
+                        <option value="16">San José</option>
+                        <option value="17">Soriano</option>
+                        <option value="18">Tacuarembó</option>
+                        <option value="19">Treinta y Tres</option>
+                    </select>
+                        <small style="color: red; size: 10px;"><i class="fas fa-asterisk"></i></small>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-2">Obligatorio ( <small style="color: red;"><i class="fas fa-asterisk"></i></small>)</p>
+
+            <div class="row mb-5">
+                <p class="text-black my-bg-dark">Detalles de la compra</p>
+                <div id=""></div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr class="col">
+                        <th scope="col" class="col-1">Producto</th>
+                        <th scope="col" class="">Cantidad</th>
+                        <th scope="col">Costo</th>
+                        <th scope="col">Moneda</th>
+                    </tr>
+                </thead>
+            </table>
+            <div id="car"></div>
+
+            <span class="row border-bottom p-2">Subtotal</span>
+            <span class="row border-bottom p-2">Envío</span>
+            <span class="row border-bottom p-2 total">Total</span>
+
         </div>
     </div>
     <div id="spinner-wrapper">
@@ -74,12 +195,12 @@
     <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header" style="background-color: rgb(255, 122, 148);">                    
+                <div class="modal-header" style="background-color: rgb(255, 122, 148);">
                     <h4 style="color: rgb(255, 255, 255);">Desea cerrar sesión?</h4>
-                    <i class="fas fa-exclamation-triangle"></i>                    
+                    <i class="fas fa-exclamation-triangle"></i>
                 </div>
                 <div class="modal-body text-center">
-                    
+
                 </div>
                 <div class="text-center">
                     <a style="color:blue;" href="login.html"> <button class="btn btn-outline-secondary my-btn-secondary" onclick="signOff()"> Si </button></a>

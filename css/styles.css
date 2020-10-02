@@ -215,9 +215,9 @@ a.custom-card:hover {
 
 .my-bg-dark {
     background-color: rgba(212, 209, 209, 0.863);
-    width: 1040px;    
+    width: 1040px;
     font-weight: bold;
-    text-align: center;      
+    text-align: center;
     font-size: 16px;
     text-orientation: initial;
     box-shadow: 1px 1px 5px rgb(80, 79, 79);
@@ -265,60 +265,69 @@ input[type="radio"]:checked~label {
     color: orange;
 }
 
-.my-column{
+.my-column {
     width: 150px;
     height: auto;
     padding: 5px;
     margin: 50px;
 }
 
-.my-column2{
+.my-column2 {
     width: 100px;
 }
 
-.my-btn{
-    color: white;    
+.my-btn {
+    color: white;
 }
 
 a.menu:hover {
-    color:#ffffff;
+    color: #ffffff;
     background-color: rgb(87, 87, 87);
 }
 
-.my-alert-success{
+.my-alert-success {
     background-color: rgb(111, 241, 111);
     font-weight: bold;
     text-align: center;
 }
 
-.zoom{
+.zoom {
     transition: transform .5s;
 }
-.zoom:hover{
-transform: scale(1.1);
+
+.zoom:hover {
+    transform: scale(1.1);
 }
 
-body{
-	font-family: 'Raleway', sans-serif;
-}
-.img-auto{
-	margin-top: -50px;
-	border: 2px solid #ddd;
+body {
+    font-family: 'Raleway', sans-serif;
 }
 
-.my-card-img-top{
+.img-auto {
+    margin-top: -50px;
+    border: 2px solid #ddd;
+}
+
+.my-card-img-top {
     width: 60em;
     height: 3.5em;
 }
 
-.my-card-footer{
-    height: 35px;    
+.my-card-footer {
+    height: 35px;
 }
 
-.my-btn-secondary{
+.my-btn-secondary {
     font-weight: bold;
     color: blue;
     margin: 20px;
     background-color: rgb(233, 231, 255);
 }
 
+.car {
+    width: 70px;
+}
+
+.total {
+    font-weight: bold;
+}
