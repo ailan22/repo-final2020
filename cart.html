@@ -83,12 +83,27 @@
                         <tbody id="carrito">
                         </tbody>
                     </table>
-                    <small id="subtotal2" class="float-right" style="font-weight: bold;"></small>
-                    <p class="row border-bottom p-2">Subtotal:</p>
-                    <small id="envío" class="float-right" style="font-weight: bold;">100</small>
-                    <p class="row border-bottom p-2">Envío:</p>
-                    <small id="totalgeneral" class="float-right" style="font-weight: bold;"></small>
-                    <p class="row border-bottom p-2 total">Total:</p>
+                    <div class="row">
+                        <div class="col">
+                            <p class="border-bottom p-1">Subtotal:</p>                                                                 
+                        </div>
+                        <div>
+                            <small id="subtotal2" class="float-right subtEnvi p-2" style="font-weight: bold;"></small>     
+                        </div>                       
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="border-bottom p-1">Envío:</p>                                                                 
+                        </div>
+                        <div>
+                            <img src="img/add.ico" height="15px">  
+                        </div>
+                        <div>
+                            <small id="envío" class="float-right subtEnvi p-2" style="font-weight: bold;">100</small>     
+                        </div>
+                        
+                    </div>                                                          
+                    <p class="row border-bottom p-2 float-right total"><img src="img/total.ico" height="30px"> <small id="totalgeneral" class="total"></small></p>
                     <div id="result"></div>
                     <div class="row">
                         <div class="card col-4 mb-3 envio-pago">

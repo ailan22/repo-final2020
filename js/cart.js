@@ -38,10 +38,6 @@ function showListCart(list) {
     }
     document.getElementById("carrito").innerHTML = htmlContentToAppend;
 }
-//Carga el subtotal al cargar la página
-/*function showSubtotal() {
-    window.open(subtotal());
-};*/
 
 //Calcula el subtotal por producto
 function subtotal_prod(posicion) {
@@ -51,7 +47,7 @@ function subtotal_prod(posicion) {
     document.getElementById("subtotalprod" + posicion).innerHTML = result;
     return result;
 }
-
+//Calcula el subtotal de todos los productos
 function subtotal_total() {
     var table = document.getElementById("tablacarrito");
     var filas = table.rows.length - 1;
@@ -63,6 +59,7 @@ function subtotal_total() {
     return st;
 }
 
+//Calcula el total a pagar
 function total() {
     let env = document.getElementById("envío").innerHTML;
     let subt = subtotal_total();
