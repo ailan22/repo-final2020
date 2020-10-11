@@ -7,33 +7,33 @@ function showListCart(list) {
     for (i = 0; i < list.articles.length; i++) {
         let car = list.articles[i];
         if (car.currency == 'USD') {
-            car.unitCost = car.unitCost * 42;
+            car.unitCost = car.unitCost * 40;
         }
         vsubtotal = car.unitCost * car.count;
         htmlContentToAppend += `
-            <tr>               
+            <tr>
                 <td>
                     <img class="img-thumbnail car" src="` + car.src + `"/>
                 </td>
                 <td>
-                    <p>` + car.name + `</p>    
+                    <p>` + car.name + `</p>
                 </td>
                 <td>
                     <span><ACRONYM title="Eliminar"><img src="img/basura.ico" width="18em"></ACRONYM></span>
                 </td>
-                <td>            
-                    <input type="number" class="form-control" id="cantidad` + i + `" value="`+car.count+`" onchange="calcular(` + i + `)">                  
+                <td>
+                    <input type="number" min="1" class="form-control prodCount" id="cantidad` + i + `" value="` + car.count + `" onchange="calcular(` + i + `)">
                 </td>
                 <td>
                     <p id="cost` + i + `">` + car.unitCost + `</p>
                 </td>
                 <td>
-                    <p>UYU</p>                        
+                    <p>UYU</p>
                 </td>
                 <td>
-                    <p id="subtotalprod` + i + `" style="font-weight: bold;">`+vsubtotal+`</p>                                                   
+                    <p id="subtotalprod` + i + `" style="font-weight: bold;">` + vsubtotal + `</p>
                 </td>
-            </tr>            
+            </tr>
         `
     }
     document.getElementById("carrito").innerHTML = htmlContentToAppend;
@@ -53,17 +53,21 @@ function subtotal_prod(posicion) {
 }
 
 function subtotal_total() {
-    cantidad = document.getElementById("cantidad" + posicion).value;
-    costo = document.getElementById('cost' + posicion).innerHTML;
-    var result = parseInt(cantidad) * parseInt(costo);
-    document.getElementById("subtotalprod" + posicion).innerHTML = result;
-    return result;
+    var table = document.getElementById("tablacarrito");
+    var filas = table.rows.length - 1;
+    var st = 0;
+    for (i = 0; i < filas; i++) {
+        cantidad = parseInt(document.getElementById("subtotalprod" + i).innerHTML);
+        st += cantidad;
+    }
+    return st;
 }
 
 function total() {
     let env = document.getElementById("envío").innerHTML;
-    let subt = subtotal();
+    let subt = subtotal_total();
 
+    document.getElementById("subtotal2").innerHTML = subt;
     var tot = parseInt(env) + subt;
     document.getElementById("totalgeneral").innerHTML = tot;
 }
@@ -79,11 +83,11 @@ function paises(lista) {
     for (x = 0; x < lista.countries.length; x++) {
         let country = lista.countries[x];
         if (country != null && country.id != null && country.id != '') {
-            try {
-                resultado += '<option value="' + country.id + '">' + country.name + '</option>';
-            } catch (error) {
-                console.log(error);
+            s = "";
+            if (country.name == "Uruguay") {
+                s = "selected";
             }
+            resultado += '<option value="' + country.id + '" ' + s + '>' + country.name + '</option>';
         }
     }
     document.getElementById("pais").innerHTML = resultado;
@@ -97,6 +101,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(CART2_BUY_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
             showListCart(resultObj.data);
+            total();
         }
     });
 });

@@ -381,3 +381,7 @@ small.asterisco {
     box-shadow: 1px 1px 5px rgb(170, 170, 170);
     border-radius: 5px;
 }
+
+.prodCount {
+    max-width: 70px;
+}
