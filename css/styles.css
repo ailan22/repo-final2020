@@ -331,3 +331,53 @@ body {
 .total {
     font-weight: bold;
 }
+
+small.asterisco {
+    color: rgb(250, 85, 85);
+}
+
+#domicilio {
+    display: block;
+}
+
+#local {
+    display: block;
+}
+
+#credito {
+    display: block;
+}
+
+#bancaria {
+    display: block;
+}
+
+#Premium {
+    display: block;
+}
+
+#Express {
+    display: block;
+}
+
+#Standard {
+    display: block;
+}
+
+.carritos {
+    width: 2em;
+}
+
+.mensajeElminar {
+    color: rgb(250, 85, 85);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.envio-pago {
+    background-color: rgba(232, 228, 228, 0.863);
+    width: 1040px;
+    text-align: center;
+    font-size: 16px;
+    box-shadow: 1px 1px 5px rgb(170, 170, 170);
+    border-radius: 5px;
+}

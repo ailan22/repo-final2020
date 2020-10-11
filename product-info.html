@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet"> 
+    <link href="css/styles.css" rel="stylesheet">
 </head>
 
 <body>
@@ -21,38 +21,38 @@
             <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
             <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
             <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-            <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>            
+            <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
             <div class="dropdown">
                 <img src="img/Screenshot_20200918_144049.jpg" class="imagen-user">
                 <a class="btn btn-secondary dropdown-toggle my-dropdown-item" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="my-btn" id="user"></span>
-                </a>    
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item menu" href="my-profile.html"><i class="far fa-address-card"></i>  Perfil </a>
-                        <a class="dropdown-item menu" href="cart.html"><i class="fas fa-cart-plus"></i>  Mi carrito </a>
-                        <div class="dropdown-divider"></div>
-                        <button data-toggle="modal" data-target="#miModal" class="dropdown-item menu"><i class="fas fa-power-off"></i>  Cerrar sesión </button>
-                    </div>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item menu" href="my-profile.html"><i class="far fa-address-card"></i>  Perfil </a>
+                    <a class="dropdown-item menu" href="cart.html"><i class="fas fa-cart-plus"></i>  Mi carrito </a>
+                    <div class="dropdown-divider"></div>
+                    <button data-toggle="modal" data-target="#miModal" class="dropdown-item menu"><i class="fas fa-power-off"></i>  Cerrar sesión </button>
+                </div>
             </div>
         </div>
     </nav>
     <div class="container p-5">
         <div class="container mb-4">
-            <p id="descripcion"></p>            
-        </div>     
-               
-        <div class="container mb-5">            
-            <div id="imagenes"></div>            
+            <p id="descripcion"></p>
         </div>
-        
+
+        <div class="container mb-5">
+            <div id="imagenes"></div>
+        </div>
+
         <div class="row form-group container">
             <p class="alert-success" id="mensaje"></p>
-            <div class="col" id="errorComent"></div>            
+            <div class="col" id="errorComent"></div>
         </div>
-                  
-        <div class="row container">                       
+
+        <div class="row container">
             <textarea class="form-control col-8" id="comment" rows="5" placeholder="Comparte tu comentario..."></textarea>
-            <i class="fas fa-pencil-alt"></i> 
+            <i class="fas fa-pencil-alt"></i>
             <button type="button" class="btn btn-primary btn-block col-sm-8 mb-4" id="butt" onclick="sendComment()"> Enviar </button>
         </div>
         <div class="container">
@@ -76,7 +76,7 @@
 
         <div class="row mb-5">
             <p class="text-black my-bg-dark">Productos relacionados</p>
-            <div id="product-relac"></div>            
+            <div id="product-relac"></div>
         </div>
 
         <div>
@@ -103,13 +103,13 @@
     </div>
     <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color: rgb(255, 122, 148);">                    
+            <div class="modal-content" style="border: crimson 2px solid;">
+                <div class="modal-header" style="background-color: rgb(255, 122, 148);">
                     <h4 style="color: rgb(255, 255, 255);">Desea cerrar sesión?</h4>
-                    <i class="fas fa-exclamation-triangle"></i>                    
+                    <img src="img/cerrar-sesion.ico" height="50px">
                 </div>
                 <div class="modal-body text-center">
-                    
+
                 </div>
                 <div class="text-center">
                     <a style="color:blue;" href="login.html"> <button class="btn btn-outline-secondary my-btn-secondary" onclick="signOff()"> Si </button></a>
@@ -118,12 +118,12 @@
             </div>
         </div>
     </div>
-  
+
     <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>    
+    <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/product-info.js"></script>
-    
+
 
 </body>
 

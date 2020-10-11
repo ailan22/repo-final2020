@@ -11,6 +11,7 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <style>
         .bd-placeholder-img {
@@ -56,148 +57,195 @@
         </div>
     </nav>
     <div class="container p-5">
-        <div class="container p-5">
-            <div class="row mb-5">
-                <p class="text-black my-bg-dark">Datos personales</p>
-                <div id=""></div>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active my-nav" id="nav-home-tab" data-toggle="tab" href="#nav-datosPersonales" role="tab" aria-controls="nav-datosPersonales" aria-selected="true" style="color: rgb(0, 0, 0); font-weight: bold;">Paso 1 </a>
+                <a class="nav-item nav-link my-nav" id="nav-profile-tab" data-toggle="tab" href="#nav-detalles" role="tab" aria-controls="nav-detalles" aria-selected="false" style="color: rgb(0, 0, 0); font-weight: bold;">Paso 2 </a>
             </div>
-            <div class="row">
-                <div class="col">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fas fa-user-tie"></i></div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-datosPersonales" role="tabpanel" aria-labelledby="nav-datosPersonales-tab">
+                <div class="container p-5">
+                    <button class="btn btn-outline-danger float-right m-1"> Vaciar carrito <img src="img/shopping_cart_remove_12830.ico" class="carritos"></button>
+                    <button class="btn btn-outline-success float-right m-1"> Agregar <img src="img/shoppingcart_below_compra_12831.ico" class="carritos"></button>
+                    <table class="table">
+                        <thead>
+                            <tr class="col">
+                                <th scope="col" class="col-2">Producto</th>
+                                <th scope="col" class="col-1">Cantidad</th>
+                                <th scope="col" class="col-1">Costo</th>
+                                <th scope="col" class="col-1">Moneda</th>
+                                <th scope="col" class="col-1">Subtotal</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div id="carrito"></div>
+                    <small id="subtotal2" class="float-right" style="font-weight: bold;"></small>
+                    <p class="row border-bottom p-2">Subtotal:</p>
+                    <small id="envío" class="float-right" style="font-weight: bold;">100</small>
+                    <p class="row border-bottom p-2">Envío:</p>
+                    <small id="totalgeneral" class="float-right" style="font-weight: bold;"></small>
+                    <p class="row border-bottom p-2 total">Total:</p>
+                    <div id="result"></div>
+                    <div class="row">
+                        <div class="card col-4 mb-3 envio-pago">
+                            <div class="card-header" style="font-weight: bold; background: transparent;background-color: rgba(232, 228, 228, 0.863);">Envío</div>
+                            <div class="card-body">
+                                <div>
+                                    <label class="row"><input class="mr-1" type="radio" name="domicilio" value="envio" id="domicilio"><img src="img/domiclio.ico" height="20px"> A domicilio</label>
+                                </div>
+                                <div>
+                                    <label class="row"><input class="mr-1" type="radio" name="domicilio" value="envio" id="local"><img src="img/tienda.ico" height="20px"> Retiro en el local</label>
+                                </div>
+                            </div>
                         </div>
-                        <input type="text" class="form-control" id="" placeholder="Nombre y apellidos">
-                        <small style="color: red; size: 10px;"><i class="fas fa-asterisk"></i></small>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fas fa-fingerprint"></i></div>
+                        <div class="card mb-3 col-6 ml-5 envio-pago">
+                            <div class="card-header" style="font-weight: bold; background: transparent; background-color: rgba(232, 228, 228, 0.863);">Forma de pago</div>
+                            <div class="card-body">
+                                <div>
+                                    <label class="row"><input class="mr-1" type="radio" name="credito" value="pago" id="credito"><img src="img/tarjeta1.ico" height="20px"> Tarjeta crédito</label>
+                                </div>
+                                <div>
+                                    <label class="row"><input class="mr-1" type="radio" name="credito" value="pago" id="bancaria"><img src="img/transferencia.ico" height="20px"> Transferencia bancaria</label>
+                                </div>
+                                <div>
+                                    <label class="row"><input class="mr-1" type="radio" name="credito" value="pago" id="bancaria"><img src="img/Money.ico" height="20px"> Efectivo</label>
+                                </div>
+                            </div>
                         </div>
-                        <input type="number" class="form-control" id="" placeholder="CI">
-                        <small style="color: red; size: 10px;"><i class="fas fa-asterisk"></i></small>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fas fa-phone-alt"></i></div>
-                        </div>
-                        <input type="number" class="form-control" id="" placeholder="Teléfono">
-                        <small style="color: red; size: 10px;"><i class="fas fa-asterisk"></i></small>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col-3">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fas fa-calendar-alt"></i></div>
-                        </div>
-                        <input type="date" class="form-control" id="" placeholder="Fecha de nacimiento">
-                    </div>
-                </div>
-            </div>
-            <p class="mt-4">Dirección</p>
-            <div class="row">
-                <div class="col">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fas fa-road"></i></div>
-                        </div>
-                        <input type="text" class="form-control" id="" placeholder="Calle">
-                        <small style="color: red; size: 10px;"><i class="fas fa-asterisk"></i></small>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fas fa-home"></i></div>
-                        </div>
-                        <input type="number" class="form-control" id="" placeholder="No">
-                        <small style="color: red; size: 10px;"><i class="fas fa-asterisk"></i></small>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fas fa-directions"></i></div>
-                        </div>
-                        <input type="text" class="form-control" id="" placeholder="Esquina">
-                        <small style="color: red; size: 10px;"><i class="fas fa-asterisk"></i></small>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fas fa-map-marker-alt"></i></div>
-                        </div>
-                        <select class="form-control">                        
-                        <option hidden>--Departamento--</option>                    
-                        <option value="1">Artigas</option>
-                        <option value="2">Canelones</option>
-                        <option value="3">Cerro Largo</option>
-                        <option value="4">Colonia</option>
-                        <option value="5">Durazno</option>
-                        <option value="6">Flores</option>
-                        <option value="7">Florida</option>
-                        <option value="8">Lavalleja</option>
-                        <option value="9">Maldonado</option>
-                        <option value="10">Montevideo</option>
-                        <option value="11">Paysandú</option>
-                        <option value="12">Río Negro</option>
-                        <option value="13">Rivera</option>
-                        <option value="14">Rocha</option>
-                        <option value="15">Salto</option>
-                        <option value="16">San José</option>
-                        <option value="17">Soriano</option>
-                        <option value="18">Tacuarembó</option>
-                        <option value="19">Treinta y Tres</option>
-                    </select>
-                        <small style="color: red; size: 10px;"><i class="fas fa-asterisk"></i></small>
                     </div>
                 </div>
             </div>
-            <p class="mt-2">Obligatorio ( <small style="color: red;"><i class="fas fa-asterisk"></i></small>)</p>
-
-            <div class="row mb-5">
-                <p class="text-black my-bg-dark">Detalles de la compra</p>
-                <div id=""></div>
+            <div class="tab-pane fade" id="nav-detalles" role="tabpanel" aria-labelledby="nav-detalles-tab">
+                <div class="container p-5">
+                    <div class="row mb-2">
+                        <p class="text-black my-bg-dark">Dirección y envío</p>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-road"></i></div>
+                                </div>
+                                <input type="text" class="form-control" id="" placeholder="Calle">
+                                <small class="asterisco"><i class="fas fa-asterisk"></i></small>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-home"></i></div>
+                                </div>
+                                <input type="number" class="form-control" id="" placeholder="No">
+                                <small class="asterisco"><i class="fas fa-asterisk"></i></small>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-directions"></i></div>
+                                </div>
+                                <input type="text" class="form-control" id="" placeholder="Esquina">
+                                <small class="asterisco"><i class="fas fa-asterisk"></i></small>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-map-marker-alt"></i></div>
+                                </div>
+                                <select class="form-control">                        
+                                <option hidden>--Departamento--</option>                    
+                                <option value="1">Artigas</option>
+                                <option value="2">Canelones</option>
+                                <option value="3">Cerro Largo</option>
+                                <option value="4">Colonia</option>
+                                <option value="5">Durazno</option>
+                                <option value="6">Flores</option>
+                                <option value="7">Florida</option>
+                                <option value="8">Lavalleja</option>
+                                <option value="9">Maldonado</option>
+                                <option value="10">Montevideo</option>
+                                <option value="11">Paysandú</option>
+                                <option value="12">Río Negro</option>
+                                <option value="13">Rivera</option>
+                                <option value="14">Rocha</option>
+                                <option value="15">Salto</option>
+                                <option value="16">San José</option>
+                                <option value="17">Soriano</option>
+                                <option value="18">Tacuarembó</option>
+                                <option value="19">Treinta y Tres</option>
+                            </select>
+                                <small class="asterisco"><i class="fas fa-asterisk"></i></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-4">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-globe-americas"></i></div>
+                                </div>
+                                <div class="justify-content-between">
+                                    <select id="pais"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-fingerprint"></i></div>
+                                </div>
+                                <input type="number" class="form-control" id="" placeholder="CI">
+                                <small class="asterisco"><i class="fas fa-asterisk"></i></small>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-phone-alt"></i></div>
+                                </div>
+                                <input type="text" class="form-control" id="" placeholder="Teléfono">
+                                <small class="asterisco"><i class="fas fa-asterisk"></i></small>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-2 text-muted">Obligatorio ( <small class="asterisco"><i class="fas fa-asterisk"></i></small>)</p>
+                    <div>
+                        <div class="card col-6 envio-pago">
+                            <div class="card-header" style="font-weight: bold; background: transparent; background-color: rgba(232, 228, 228, 0.863);">Tipo de envío</div>
+                            <div class="card-body">
+                                <div>
+                                    <label class="row"><input type="radio" class="mr-1" name="Premium" value="Premium" id="Premium"> Premium (2-5 días) - Costo del 15% sobre el subtotal.</label>
+                                </div>
+                                <div>
+                                    <label class="row"><input type="radio" class="mr-1" name="Premium" value="Express" id="Express"> Express (5-8 días) - Costo del 7% sobre el subtotal.</label>
+                                </div>
+                                <div>
+                                    <label class="row"><input type="radio" class="mr-1" name="Premium" value="Standard" id="Standard"> Standard (12 a 15 días) - Costo del 5% sobre el subtotal.</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-outline-success float-right">Finalizar compra <img src="img/check.ico" height="20px"></button>
             </div>
-            <table class="table">
-                <thead>
-                    <tr class="col">
-                        <th scope="col" class="col-1">Producto</th>
-                        <th scope="col" class="">Cantidad</th>
-                        <th scope="col">Costo</th>
-                        <th scope="col">Moneda</th>
-                    </tr>
-                </thead>
-            </table>
-            <div id="car"></div>
-
-            <span class="row border-bottom p-2">Subtotal</span>
-            <span class="row border-bottom p-2">Envío</span>
-            <span class="row border-bottom p-2 total">Total</span>
-
         </div>
-    </div>
-    <div id="spinner-wrapper">
-        <div class="lds-ring">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+        <div id="spinner-wrapper">
+            <div class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
     </div>
     <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content" style="border: crimson 2px solid;">
                 <div class="modal-header" style="background-color: rgb(255, 122, 148);">
                     <h4 style="color: rgb(255, 255, 255);">Desea cerrar sesión?</h4>
-                    <i class="fas fa-exclamation-triangle"></i>
+                    <img src="img/cerrar-sesion.ico" height="50px">
                 </div>
                 <div class="modal-body text-center">
 
