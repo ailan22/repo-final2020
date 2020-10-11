@@ -6,32 +6,34 @@ function showListCart(list) {
     let htmlContentToAppend = "";
     for (i = 0; i < list.articles.length; i++) {
         let car = list.articles[i];
-
+        if (car.currency == 'USD') {
+            car.unitCost = car.unitCost * 42;
+        }
+        vsubtotal = car.unitCost * car.count;
         htmlContentToAppend += `
-        <table class="table">
-            <div class="row">               
-                <img class="img-thumbnail car" src="` + car.src + `"/>
-                <p class="col-6">` + car.name + `</p>                
-                <span class="col-1"><ACRONYM title="Eliminar"><img src="img/basura.ico" width="18em"></ACRONYM></span>
-                    <div class="col-1 justify-content-between">
-                        <select name="cant" id="cantidad` + i + `" onchange="calcular("` + i + `")">
-                            <option value="1">1</option>
-                            <option value="2" selected>2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>                            
-                    </div>
-                        <span class="col-1 "id="cost` + i + `">` + car.unitCost + `</span>
-                        <span class="col-1 justify-content-between">` + car.currency + ` </span>                        
-                        <p class="col-1" id="subtotalprod` + i + `" style="font-weight: bold;"></p>                                                   
-            </div>            
-        </table>
+            <tr>               
+                <td>
+                    <img class="img-thumbnail car" src="` + car.src + `"/>
+                </td>
+                <td>
+                    <p>` + car.name + `</p>    
+                </td>
+                <td>
+                    <span><ACRONYM title="Eliminar"><img src="img/basura.ico" width="18em"></ACRONYM></span>
+                </td>
+                <td>            
+                    <input type="number" class="form-control" id="cantidad` + i + `" value="`+car.count+`" onchange="calcular(` + i + `)">                  
+                </td>
+                <td>
+                    <p id="cost` + i + `">` + car.unitCost + `</p>
+                </td>
+                <td>
+                    <p>UYU</p>                        
+                </td>
+                <td>
+                    <p id="subtotalprod` + i + `" style="font-weight: bold;">`+vsubtotal+`</p>                                                   
+                </td>
+            </tr>            
         `
     }
     document.getElementById("carrito").innerHTML = htmlContentToAppend;
@@ -42,10 +44,18 @@ function showListCart(list) {
 };*/
 
 //Calcula el subtotal por producto
-function subtotal(posicion) {
+function subtotal_prod(posicion) {
     cantidad = document.getElementById("cantidad" + posicion).value;
-    costo = document.getElementById("cost" + posicion).innerHTML;
-    var result = cantidad * costo;
+    costo = document.getElementById('cost' + posicion).innerHTML;
+    var result = parseInt(cantidad) * parseInt(costo);
+    document.getElementById("subtotalprod" + posicion).innerHTML = result;
+    return result;
+}
+
+function subtotal_total() {
+    cantidad = document.getElementById("cantidad" + posicion).value;
+    costo = document.getElementById('cost' + posicion).innerHTML;
+    var result = parseInt(cantidad) * parseInt(costo);
     document.getElementById("subtotalprod" + posicion).innerHTML = result;
     return result;
 }
@@ -59,7 +69,7 @@ function total() {
 }
 
 function calcular(posicion) {
-    subtotal(posicion);
+    subtotal_prod(posicion);
     total();
 }
 
