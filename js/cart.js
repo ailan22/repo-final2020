@@ -91,7 +91,46 @@ function paises(lista) {
     if (lista != null && lista.length > 0) {
         document.getElementById("pais").value = lista[1].id;
     }
+};
 
+//función validar tipo de envio
+function validarCostoEnvio() {
+    var tipoEnvio = document.getElementsByName("Premium");
+    var formValid = false;
+
+    var i = 0;
+    while (!formValid && i < tipoEnvio.length) {
+        if (tipoEnvio[i].checked) formValid = true;
+        i++;
+    }
+
+    if (formValid == false) {
+        document.getElementById("error").innerHTML = "Debe seleccionar un tipo de envío";
+        return formValid;
+    } else {
+        document.getElementById("error").innerHTML = "";
+        return true;
+    }
+};
+
+function validarDatosEnvio() {
+    var addrElem = document.getElementsByClassName("req");
+    var formValid = true;
+    for (var i = 0; i < addrElem.length; i++) {
+        formValid = formValid && addrElem[i].value != "";
+    }
+    if (formValid == false) {
+        document.getElementById("error2").innerHTML = "Debe completar todos los datos de envío";
+        return false;
+    } else {
+        document.getElementById("error2").innerHTML = "";
+        return true;
+    }
+};
+
+function correcto() {
+    if (validarDatosEnvio() = true && validarCostoEnvio() == true)
+        document.getElementById("exito").innerHTML = "Datos enviados correctos";
 }
 
 document.addEventListener("DOMContentLoaded", function(e) {

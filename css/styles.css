@@ -360,6 +360,10 @@ small.asterisco {
     display: block;
 }
 
+#money {
+    display: block;
+}
+
 #Premium {
     display: block;
 }
@@ -369,6 +373,14 @@ small.asterisco {
 }
 
 #Standard {
+    display: block;
+}
+
+#visa {
+    display: block;
+}
+
+#mastercard {
     display: block;
 }
 
