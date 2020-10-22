@@ -94,7 +94,7 @@ function paises(lista) {
 };
 
 //función validar tipo de envio
-function validarCostoEnvio() {
+function validarTipoEnvio() {
     var tipoEnvio = document.getElementsByName("Premium");
     var formValid = false;
 
@@ -103,9 +103,28 @@ function validarCostoEnvio() {
         if (tipoEnvio[i].checked) formValid = true;
         i++;
     }
+    if (formValid == false) {
+        document.getElementById("error2").innerHTML = "Debe seleccionar un tipo de envío";
+        return formValid;
+    } else {
+        document.getElementById("error2").innerHTML = "";
+        return true;
+    }
+};
+
+//Función valida forma de envío
+function validarEnvio() {
+    var envio = document.getElementsByName("envios");
+    var formValid = false;
+
+    var i = 0;
+    while (!formValid && i < envio.length) {
+        if (envio[i].checked) formValid = true;
+        i++;
+    }
 
     if (formValid == false) {
-        document.getElementById("error").innerHTML = "Debe seleccionar un tipo de envío";
+        document.getElementById("error").innerHTML = "Debe seleccionar una forma de envío";
         return formValid;
     } else {
         document.getElementById("error").innerHTML = "";
@@ -113,6 +132,7 @@ function validarCostoEnvio() {
     }
 };
 
+//Función valida datos de envío
 function validarDatosEnvio() {
     var addrElem = document.getElementsByClassName("req");
     var formValid = true;
@@ -120,19 +140,77 @@ function validarDatosEnvio() {
         formValid = formValid && addrElem[i].value != "";
     }
     if (formValid == false) {
-        document.getElementById("error2").innerHTML = "Debe completar todos los datos de envío";
+        document.getElementById("error3").innerHTML = "Debe completar todos los datos de envío";
         return false;
     } else {
-        document.getElementById("error2").innerHTML = "";
+        document.getElementById("error3").innerHTML = "";
         return true;
     }
 };
 
-function correcto() {
-    if (validarDatosEnvio() = true && validarCostoEnvio() == true)
-        document.getElementById("exito").innerHTML = "Datos enviados correctos";
+function validarForm() {
+    validarTipoEnvio();
+    validarEnvio();
+    validarDatosEnvio();
+    formaDePago()
 }
 
+function showShipping0() {
+    div = document.getElementById("flotante0");
+    div.style.display = "block";
+}
+
+function hideShipping0() {
+    div = document.getElementById("flotante0");
+    div.style.display = "none";
+}
+
+function showShipping1() {
+    div = document.getElementById("flotante1");
+    div.style.display = "block";
+}
+
+function hideShipping1() {
+    div = document.getElementById("flotante1");
+    div.style.display = "none";
+}
+
+function showShipping2() {
+    div = document.getElementById("flotante2");
+    div.style.display = "block";
+}
+
+function hideShipping2() {
+    div = document.getElementById("flotante2");
+    div.style.display = "none";
+}
+
+function show() {
+    showShipping0()
+    showShipping1()
+    showShipping2()
+};
+
+function Hidden() {
+    hideShipping0()
+    hideShipping2()
+    showShipping1()
+};
+
+function formaDePago() {
+    var form = document.getElementsByClassName("req1");
+    var formValid = true;
+
+    for (i = 0; i < form.length; i++) {
+        formValid = formValid && form[i].value != "";
+    }
+    if (formValid == false) {
+        document.getElementById("error4").innerHTML = "Debe completar una forma de pago";
+        return false;
+    }
+    document.getElementById("error4").innerHTML = "";
+    return true;
+}
 document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(CART2_BUY_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
