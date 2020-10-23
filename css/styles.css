@@ -403,7 +403,6 @@ body {
 }
 
 .tipoenvio {
-    text-align: center;
     font-style: italic;
     font-weight: bold;
     color: mediumblue;
@@ -425,11 +424,6 @@ body {
 
 .prodCount {
     max-width: 70px;
-}
-
-.titulosModal {
-    color: mediumblue;
-    font-weight: bold;
 }
 
 .erroresCarrito {

@@ -74,6 +74,14 @@ function calcular(posicion) {
     total();
 }
 
+//Funcion para poner comas al total
+function numberWithCommas() {
+    let a = document.getElementById("totalgeneral").innerHTML
+    document.getElementById("totalgeneral").innerHTML = (a.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+}
+
+
+
 //funcion para cargar JSON de paises
 function paises(lista) {
     let resultado = "";
@@ -152,7 +160,7 @@ function validarForm() {
     validarTipoEnvio();
     validarEnvio();
     validarDatosEnvio();
-    formaDePago()
+    tarjetaCredito();
 }
 
 function showShipping0() {
@@ -197,7 +205,7 @@ function Hidden() {
     showShipping1()
 };
 
-function formaDePago() {
+function tarjetaCredito() {
     var form = document.getElementsByClassName("req1");
     var formValid = true;
 
@@ -205,17 +213,26 @@ function formaDePago() {
         formValid = formValid && form[i].value != "";
     }
     if (formValid == false) {
-        document.getElementById("error4").innerHTML = "Debe completar una forma de pago";
+        document.getElementById("error4").innerHTML = "Debe completar todos los datos";
         return false;
     }
     document.getElementById("error4").innerHTML = "";
     return true;
-}
+};
+
+/*function formaDePago() {
+    let a = document.getElementById("headingOne");
+    if (a != checked) {
+        document.getElementById("error5").innerHTML = "Debe seleccionar una forma de pago";
+    }
+    document.getElementById("error5").innerHTML = "";
+}*/
 document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(CART2_BUY_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
             showListCart(resultObj.data);
             total();
+            numberWithCommas();
         }
     });
 });
