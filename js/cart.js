@@ -71,7 +71,9 @@ function total() {
 
 function calcular(posicion) {
     subtotal_prod(posicion);
+    document.getElementById("envío").innerHTML = "0";
     total();
+    numberWithCommas();
 }
 
 //Funcion para poner comas al total
@@ -127,7 +129,8 @@ function validarEnvio() {
 
     var i = 0;
     while (!formValid && i < envio.length) {
-        if (envio[i].checked) formValid = true;
+        if (envio[i].checked)
+            formValid = true;
         i++;
     }
 
@@ -157,10 +160,16 @@ function validarDatosEnvio() {
 };
 
 function validarForm() {
-    validarTipoEnvio();
     validarEnvio();
+    if (validarTipoEnvio()) {
+        calcularEnvioSubtotal();
+        total();
+        numberWithCommas();
+    }
+    if (formaDePago())
+        tarjetaCredito();
     validarDatosEnvio();
-    tarjetaCredito();
+
 }
 
 function showShipping0() {
@@ -220,13 +229,33 @@ function tarjetaCredito() {
     return true;
 };
 
-/*function formaDePago() {
+function calcularEnvioSubtotal() {
+    let a = document.getElementById("subtotal2").innerHTML;
+    let premium = document.getElementById("Premium");
+    let express = document.getElementById("Express");
+    let standar = document.getElementById("Standard");
+    let porciento;
+
+    if (premium.checked) {
+        porciento = 15;
+    } else if (express.checked) {
+        porciento = 7;
+    } else if (standar.checked) {
+        porciento = 5;
+    }
+    var resultado = parseInt(a * porciento) / 100
+    document.getElementById("envío").innerHTML = resultado;
+};
+
+
+function formaDePago() {
     let a = document.getElementById("headingOne");
-    if (a != checked) {
+    if (a.checked) {
         document.getElementById("error5").innerHTML = "Debe seleccionar una forma de pago";
     }
     document.getElementById("error5").innerHTML = "";
-}*/
+};
+
 document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(CART2_BUY_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {

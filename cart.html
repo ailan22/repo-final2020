@@ -90,7 +90,7 @@
                 <img src="img/add.ico" height="15px">
             </div>
             <div>
-                <small id="envío" class="float-right subtEnvi p-2" style="font-weight: bold;">100</small>
+                <small id="envío" class="float-right subtEnvi p-2" style="font-weight: bold;">0</small>
             </div>
 
         </div>
@@ -107,7 +107,6 @@
                 <div class="modal-content">
                     <div class="modal-header container">
                         <h5 class="modal-title col-3 tipoenvio" id="">Envío</h5>
-
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
@@ -142,137 +141,105 @@
                         <div class="col container" id="flotante1">
                             <hr>
                             <h5 class="tipoenvio">Forma de pago</h5>
-                            <div class="accordion" id="accordionExample">
-                                <div class="card">
-                                    <div class="card-header" id="headingOne">
-                                        <h2 class="mb-0">
-                                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Tarjeta crédito
-                                  </button>
-                                        </h2>
-                                    </div>
-                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-2" id="tipoTarjeta">
-                                                    <div class="col">
-                                                        <label class="row"><input class="mr-1"  type="radio" name="tarjeta" value="tarj" id="visa"><img src="img/Visa.ico" height="20px"></label>
-                                                    </div>
-                                                    <div class="col">
-                                                        <label class="row"><input class="mr-1"  type="radio" name="tarjeta" value="tarj" id="mastercard"><img src="img/mastercard.ico" height="20px"></label>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="col mt-1">
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text"><img src="img/user_card.ico" height="22px"></div>
-                                                            </div>
-                                                            <input type="text" class="form-control req1" id="" placeholder="Titular de la tarjeta">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-8 mt-1">
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text"><img src="img/numero.ico" height="15px"></div>
-                                                            </div>
-                                                            <input type="number" class="form-control req1" id="" placeholder="Número de tarjeta">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6 mt-1">
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text"><img src="img/security_code_payment_method_card_icon_142732.jpg" height="14px"></div>
-                                                            </div>
-                                                            <input type="number" class="form-control req1" id="" placeholder="Código CVV">
-                                                            <ACRONYM title="Código de 3 ó 4 dígitos en tu tarjeta"><i class="far fa-question-circle m-1"></i></ACRONYM>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-4">
-                                                    <div class="col mt-1">
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
-                                                            </div>
-                                                            <input type="date" class="form-control" id="">
-                                                            <small>F. vencimiento</small>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6 mt-1">
-                                                        <select class="form-control" name="" id="">
-                                                    <option hidden value="">--Moneda--</option>
-                                                    <option value="">UY</option>
-                                                    <option value="">USD</option>
-                                                </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <p id="error4" class="erroresCarrito"></p>
+                            <label class="row m-1"><input type="radio" name="tcredito" value="tcredito" id="tcredito">Tarjeta de crédito</label>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2" id="tipoTarjeta">
+                                <div class="col">
+                                    <label class="row"><input class="mr-1"  type="radio" name="tarjeta" value="tarj" id="visa"><img src="img/Visa.ico" height="20px"></label>
+                                </div>
+                                <div class="col">
+                                    <label class="row"><input class="mr-1"  type="radio" name="tarjeta" value="tarj" id="mastercard"><img src="img/mastercard.ico" height="20px"></label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="col mt-1">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><img src="img/user_card.ico" height="22px"></div>
                                         </div>
+                                        <input type="text" class="form-control req1" id="" placeholder="Titular de la tarjeta">
                                     </div>
                                 </div>
-                                <div class="card">
-                                    <div class="card-header" id="headingTwo">
-                                        <h2 class="mb-0">
-                                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Transferencia bancaria
-                                  </button>
-                                        </h2>
-                                    </div>
-                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="col-4 mt-1">
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text"><img src="img/user_card.ico" height="22px"></div>
-                                                            </div>
-                                                            <input type="text" class="form-control" id="" placeholder="Titular de la tarjeta">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-4 mt-1">
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text"><img src="img/numero_cuenta.ico" height="22px"></div>
-                                                            </div>
-                                                            <input type="number" class="form-control" id="" placeholder="Numero de cuenta">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-2 mt-1">
-                                                    <select class="form-control" name="" id="">
-                                                    <option hidden value="">--Moneda--</option>
-                                                    <option value="">UY</option>
-                                                    <option value="">USD</option>
-                                                </select>
-                                                </div>
-                                            </div>
+                                <div class="col-8 mt-1">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><img src="img/numero.ico" height="15px"></div>
                                         </div>
+                                        <input type="number" class="form-control req1" id="" placeholder="Número de tarjeta">
                                     </div>
                                 </div>
-                                <div class="card">
-                                    <div class="card-header" id="headingThree">
-                                        <h2 class="mb-0">
-                                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                      Efectivo
-                                    </button>
-                                        </h2>
-                                    </div>
-                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div class="col-2">
-                                                <label class="row"><input type="radio" id="tienda" class="mr-1" name="tienda" value="tienda"><img src="img/tienda.ico" height="20px"> Pago en el local</label>
-                                            </div>
+                                <div class="col-6 mt-1">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><img src="img/security_code_payment_method_card_icon_142732.jpg" height="14px"></div>
                                         </div>
+                                        <input type="number" class="form-control req1" id="" placeholder="Código CVV">
+                                        <ACRONYM title="Código de 3 ó 4 dígitos en tu tarjeta"><i class="far fa-question-circle m-1"></i></ACRONYM>
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="col-4">
+                                <div class="col mt-1">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
+                                        </div>
+                                        <input type="date" class="form-control" id="">
+                                        <small>F. vencimiento</small>
+                                    </div>
+                                </div>
+                                <div class="col-6 mt-1">
+                                    <select class="form-control" name="" id="">
+                                                    <option hidden value="">--Moneda--</option>
+                                                    <option value="">UY</option>
+                                                    <option value="">USD</option>
+                                                </select>
+                                </div>
+                                <p id="error4" class="erroresCarrito"></p>
+                            </div>
+                        </div>
+                        <h2 class="mb-0">
+                            <label class="row m-1"><input type="radio" name="tbancaria" value="tbancaria" id="tbancaria">Transferencia bancaria</label>
+                        </h2>
+                        <div class="row">
+                            <div class="col">
+                                <div class="col-4 mt-1">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><img src="img/user_card.ico" height="22px"></div>
+                                        </div>
+                                        <input type="text" class="form-control" id="" placeholder="Titular de la tarjeta">
+                                    </div>
+                                </div>
+                                <div class="col-4 mt-1">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><img src="img/numero_cuenta.ico" height="22px"></div>
+                                        </div>
+                                        <input type="number" class="form-control" id="" placeholder="Numero de cuenta">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2 mt-1">
+                                <select class="form-control" name="" id="">
+                                              <option hidden value="">--Moneda--</option>
+                                              <option value="">UY</option>
+                                              <option value="">USD</option>
+                                          </select>
+                            </div>
                         </div>
                     </div>
-
+                    <div class="col container">
+                        <h5 class="mb-0">
+                            <label class="row m-1"><input type="radio" name="efectivo" value="efectivo" id="efectivo">Efectivo</label>
+                        </h5>
+                        <div class="col-2">
+                            <label class="row"><input type="radio" id="tienda" class="mr-1" name="tienda" value="tienda"><img src="img/tienda.ico" height="20px"> Pago en el local</label>
+                        </div>
+                        <p id="error5"></p>
+                    </div>
                     <div class="modal-body" id="flotante2">
                         <hr>
                         <h5 class="tipoenvio">Datos</h5>
@@ -308,27 +275,27 @@
                                         <div class="input-group-text"><i class="fas fa-map-marker-alt"></i></div>
                                     </div>
                                     <select class="form-control req">                        
-                                                <option hidden>--Departamento--</option>                    
-                                                <option value="1">Artigas</option>
-                                                <option value="2">Canelones</option>
-                                                <option value="3">Cerro Largo</option>
-                                                <option value="4">Colonia</option>
-                                                <option value="5">Durazno</option>
-                                                <option value="6">Flores</option>
-                                                <option value="7">Florida</option>
-                                                <option value="8">Lavalleja</option>
-                                                <option value="9">Maldonado</option>
-                                                <option value="10">Montevideo</option>
-                                                <option value="11">Paysandú</option>
-                                                <option value="12">Río Negro</option>
-                                                <option value="13">Rivera</option>
-                                                <option value="14">Rocha</option>
-                                                <option value="15">Salto</option>
-                                                <option value="16">San José</option>
-                                                <option value="17">Soriano</option>
-                                                <option value="18">Tacuarembó</option>
-                                                <option value="19">Treinta y Tres</option>
-                                    </select>
+                                          <option hidden>--Departamento--</option>                    
+                                          <option value="1">Artigas</option>
+                                          <option value="2">Canelones</option>
+                                          <option value="3">Cerro Largo</option>
+                                          <option value="4">Colonia</option>
+                                          <option value="5">Durazno</option>
+                                          <option value="6">Flores</option>
+                                          <option value="7">Florida</option>
+                                          <option value="8">Lavalleja</option>
+                                          <option value="9">Maldonado</option>
+                                          <option value="10">Montevideo</option>
+                                          <option value="11">Paysandú</option>
+                                          <option value="12">Río Negro</option>
+                                          <option value="13">Rivera</option>
+                                          <option value="14">Rocha</option>
+                                          <option value="15">Salto</option>
+                                          <option value="16">San José</option>
+                                          <option value="17">Soriano</option>
+                                          <option value="18">Tacuarembó</option>
+                                          <option value="19">Treinta y Tres</option>
+                              </select>
                                 </div>
                             </div>
                         </div>
@@ -370,15 +337,15 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div id="spinner-wrapper">
-        <div class="lds-ring">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+
+        <div id="spinner-wrapper">
+            <div class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
-    </div>
     </div>
     <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

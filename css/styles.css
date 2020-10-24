@@ -388,6 +388,18 @@ body {
     display: block;
 }
 
+#efectivo {
+    display: block;
+}
+
+#tcredito {
+    display: block;
+}
+
+#tbancaria {
+    display: block;
+}
+
 #flotante0 {
     display: none;
     border: rgb(170, 170, 170) 1px solid;
