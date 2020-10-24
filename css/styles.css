@@ -1,29 +1,16 @@
-.jumbotron,
-.card-body,
-.container,
-.site-header {
-    font-family: 'Raleway', serif !important;
-}
-
-.jumbotron .display-4 {
-    font-weight: bold;
-}
-
-.jumbotron {
-    height: 50vh;
-    padding: 5em inherit;
-    margin-bottom: 0;
-    background-color: #53C0FB;
-    background: url('../img/cover_back.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: black;
-    font-weight: bold;
-}
-
-@media (min-width: 768px) {
+    .jumbotron,
+    .card-body,
+    .container,
+    .site-header {
+        font-family: 'Raleway', serif !important;
+    }
+    
+    .jumbotron .display-4 {
+        font-weight: bold;
+    }
+    
     .jumbotron {
+<<<<<<< HEAD
         padding-top: 6rem;
         padding-bottom: 6rem;
     }
@@ -443,3 +430,434 @@ body {
     background-color: red;
     font-weight: bold;
 }
+=======
+        height: 50vh;
+        padding: 5em inherit;
+        margin-bottom: 0;
+        background-color: #53C0FB;
+        background: url('../img/cover_back.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: black;
+        font-weight: bold;
+    }
+    
+    @media (min-width: 768px) {
+        .jumbotron {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+    }
+    
+    .jumbotron p:last-child {
+        margin-bottom: 0;
+    }
+    
+    .jumbotron-heading {
+        font-weight: 300;
+    }
+    
+    .jumbotron .container {
+        max-width: 40rem;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+        text-shadow: 1px 1px 2px grey;
+    }
+    
+    .jumbotron .lead {
+        font-size: 38px;
+    }
+    
+    footer {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    
+    footer p {
+        margin-bottom: .25rem;
+    }
+    
+    .site-header a {
+        color: white;
+        transition: ease-in-out color .15s;
+    }
+    
+    .light-text {
+        color: white;
+    }
+    
+    .site-header .dropdown-menu a {
+        color: black;
+    }
+    
+    .dropzone {
+        border: 2px dashed #0087F7;
+        border-radius: 5px;
+        background: white;
+    }
+    
+    .alert {
+        position: fixed;
+        top: 80px;
+        width: 50%;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+    
+    .lds-ring {
+        display: inline-block;
+        position: relative;
+        width: 64px;
+        height: 64px;
+        top: 50%;
+        left: 50%;
+    }
+    
+    .lds-ring div {
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        width: 51px;
+        height: 51px;
+        margin: 6px;
+        border: 6px solid #fff;
+        border-radius: 50%;
+        animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        border-color: #fff transparent transparent transparent;
+    }
+    
+    .lds-ring div:nth-child(1) {
+        animation-delay: -0.45s;
+    }
+    
+    .lds-ring div:nth-child(2) {
+        animation-delay: -0.3s;
+    }
+    
+    .lds-ring div:nth-child(3) {
+        animation-delay: -0.15s;
+    }
+    
+    @keyframes lds-ring {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    
+    #spinner-wrapper {
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1021;
+        display: none;
+    }
+    
+    a.custom-card,
+    a.custom-card:hover {
+        color: inherit;
+        text-decoration: inherit;
+    }
+    
+    .checked {
+        color: orange;
+    }
+    
+    .my-alert-danger {
+        border-color: rgba(41, 40, 40, 0.1);
+        background-color: rgba(85, 85, 87, 0.432);
+        width: 200px;
+        height: 590px;
+        box-shadow: 0.5em 0.2em 0.5em 0.5em rgba(41, 40, 40, 0.1);
+        border-radius: 20px;
+    }
+    
+    .img-resize {
+        width: 400px;
+        height: 160px;
+        border-radius: 10px;
+        opacity: 0.8;
+    }
+    
+    .my-form-control {
+        font-style: italic;
+        position: relative;
+        box-sizing: border-box;
+        height: auto;
+        width: 350px;
+        font-size: 16px;
+    }
+    
+    #demo,
+    #demo1,
+    #demo2 {
+        font-weight: bold;
+        color: rgb(255, 0, 0);
+        font-family: 'Courier New';
+    }
+    
+    .my-fa-fa-user {
+        height: 10px;
+        width: 10px;
+    }
+    
+    #bot {
+        height: 20px;
+        width: 25px;
+    }
+    
+    .my-font-weight-normal {
+        color: rgb(1, 1, 20);
+        font-weight: bold;
+        font-family: 'Times New Roman';
+    }
+    
+    .my-size {
+        width: 1000px;
+    }
+    
+    .imagen-user {
+        height: 30px;
+        width: 30px;
+        border-radius: 15px;
+    }
+    
+    .my-img {
+        width: 42px;
+        height: 45px;
+        border-radius: 15px;
+    }
+    
+    .my-bg-dark {
+        background-color: rgba(212, 209, 209, 0.863);
+        width: 1040px;
+        font-weight: bold;
+        text-align: center;
+        font-size: 16px;
+        text-orientation: initial;
+        box-shadow: 1px 1px 5px rgb(80, 79, 79);
+        border-radius: 5px;
+    }
+    
+    #errorComent,
+    #errorEstrellas {
+        color: red;
+    }
+    
+    #form {
+        width: 250px;
+        margin: 0 auto;
+        height: 50px;
+    }
+    
+    #form p {
+        text-align: center;
+    }
+    
+    #form label {
+        font-size: 20px;
+    }
+    
+    input[type="radio"] {
+        display: none;
+    }
+    
+    label {
+        color: rgb(85, 84, 84);
+    }
+    
+    .clasificacion {
+        direction: rtl;
+        unicode-bidi: bidi-override;
+    }
+    
+    label:hover,
+    label:hover~label {
+        color: orange;
+    }
+    
+    input[type="radio"]:checked~label {
+        color: orange;
+    }
+    
+    .my-column {
+        width: 150px;
+        height: auto;
+        padding: 5px;
+        margin: 50px;
+    }
+    
+    .my-column2 {
+        width: 100px;
+    }
+    
+    .my-btn {
+        color: white;
+    }
+    
+    a.menu:hover {
+        color: #ffffff;
+        background-color: rgb(87, 87, 87);
+    }
+    
+    .my-alert-success {
+        background-color: rgb(111, 241, 111);
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    .zoom {
+        transition: transform .5s;
+    }
+    
+    .zoom:hover {
+        transform: scale(1.1);
+    }
+    
+    body {
+        font-family: 'Raleway', sans-serif;
+    }
+    
+    .img-auto {
+        margin-top: -50px;
+        border: 2px solid #ddd;
+    }
+    
+    .my-card-img-top {
+        width: 60em;
+        height: 3.5em;
+    }
+    
+    .my-card-footer {
+        height: 35px;
+    }
+    
+    .my-btn-secondary {
+        font-weight: bold;
+        color: blue;
+        margin: 20px;
+        background-color: rgb(233, 231, 255);
+    }
+    
+    .car {
+        width: 70px;
+    }
+    
+    .total {
+        font-weight: bold;
+        background-color: rgb(255, 251, 122);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: large;
+        color: rgb(255, 0, 0);
+    }
+    
+    .subtEnvi {
+        background-color: rgb(255, 255, 152);
+    }
+    
+    #domicilio {
+        display: block;
+    }
+    
+    #local {
+        display: block;
+    }
+    
+    #credito {
+        display: block;
+    }
+    
+    #bancaria {
+        display: block;
+    }
+    
+    #money {
+        display: block;
+    }
+    
+    #Premium {
+        display: block;
+    }
+    
+    #Express {
+        display: block;
+    }
+    
+    #Standard {
+        display: block;
+    }
+    
+    #visa {
+        display: block;
+    }
+    
+    #mastercard {
+        display: block;
+    }
+    
+    .carritos {
+        width: 2em;
+    }
+    
+    #tienda {
+        display: block;
+    }
+    
+    #flotante0 {
+        display: none;
+        border: rgb(170, 170, 170) 1px solid;
+        background: rgb(236, 236, 236);
+    }
+    
+    #flotante1 {
+        display: none;
+    }
+    
+    #flotante2 {
+        display: none;
+    }
+    
+    .tipoenvio {
+        font-style: italic;
+        font-weight: bold;
+        color: mediumblue;
+    }
+    
+    .mensajeElminar {
+        color: rgb(250, 85, 85);
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .envio-pago {
+        background-color: rgba(232, 228, 228, 0.863);
+        width: 1040px;
+        text-align: center;
+        font-size: 16px;
+        box-shadow: 1px 1px 5px rgb(170, 170, 170);
+        border-radius: 5px;
+    }
+    
+    .prodCount {
+        max-width: 70px;
+    }
+    
+    .erroresCarrito {
+        color: white;
+        background-color: red;
+        font-weight: bold;
+    }
+    
+    .porcientos {
+        color: white;
+        background: red;
+        font-weight: bold;
+        font-family: 'Times New Roman';
+        font-size: large;
+    }
+>>>>>>> 32ec0bb184a14e6cc352eb38899fce3e506f0a8c
