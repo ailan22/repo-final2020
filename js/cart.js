@@ -74,10 +74,6 @@ function calcular(posicion) {
     document.getElementById("envío").innerHTML = "0";
     total();
     numberWithCommas();
-<<<<<<< HEAD
-=======
-    //calcularTipoEnvio();
->>>>>>> 32ec0bb184a14e6cc352eb38899fce3e506f0a8c
 }
 
 //Funcion para poner comas al total
@@ -126,32 +122,6 @@ function validarTipoEnvio() {
     }
 };
 
-/*function calcularTipoEnvio() {
-    let premium = document.getElementById("Premium");
-    let express = document.getElementById("Express");
-    let standard = document.getElementById("Standard");
-    let sub = document.getElementById("totalgeneral").innerHTML
-
-    if (premium.checked && !express.checked && !standard.checked) {
-        var porciento = (parseInt(sub) * 15) / 100;
-        document.getElementById("envío").innerHTML = parseInt(porciento);
-    } else {
-        document.getElementById("envío").innerHTML = "";
-        if (express.checked && !premium.checked && !standard.checked) {
-            var porciento2 = (parseInt(sub) * 7) / 100;
-            document.getElementById("envío").innerHTML = parseInt(porciento2);
-        } else {
-            document.getElementById("envío").innerHTML = "";
-        }
-        if (standard.checked && !premium.checked && !express.checked) {
-            var porciento3 = (parseInt(sub) * 5) / 100;
-            document.getElementById("envío").innerHTML = parseInt(porciento3);
-        } else {
-            document.getElementById("envío").innerHTML = "";
-        }        
-    }
-}
-*/
 //Función valida forma de envío
 function validarEnvio() {
     var envio = document.getElementsByName("envios");
