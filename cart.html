@@ -122,7 +122,7 @@
                                 </div>
                                 <p id="error" class="erroresCarrito"></p>
                             </div>
-                            <div class="col-6 container" id="flotante0">
+                            <div class="col-6 container flotantes" id="flotante0">
                                 <div class="col">
                                     <h6 class="modal-title tipoenvio m-1">Tipo de envío</h6>
                                     <div>
@@ -138,107 +138,114 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col container" id="flotante1">
-                            <hr>
-                            <h5 class="tipoenvio">Forma de pago</h5>
-                            <label class="row m-1"><input type="radio" name="tcredito" value="tcredito" id="tcredito">Tarjeta de crédito</label>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-2" id="tipoTarjeta">
-                                <div class="col">
-                                    <label class="row"><input class="mr-1"  type="radio" name="tarjeta" value="tarj" id="visa"><img src="img/Visa.ico" height="20px"></label>
-                                </div>
-                                <div class="col">
-                                    <label class="row"><input class="mr-1"  type="radio" name="tarjeta" value="tarj" id="mastercard"><img src="img/mastercard.ico" height="20px"></label>
-                                </div>
+                        <div id="flotante1">
+                            <div class="col container">
+                                <hr>
+                                <h5 class="tipoenvio">Forma de pago</h5>
                             </div>
                             <div class="col">
-                                <div class="col mt-1">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><img src="img/user_card.ico" height="22px"></div>
-                                        </div>
-                                        <input type="text" class="form-control req1" id="" placeholder="Titular de la tarjeta">
-                                    </div>
+                                <div class="col">
+                                    <label class="row m-1"><input class="mr-1" type="radio" name="tcredito" value="tcredito" id="tcredito" onclick="showCredito()">Tarjeta de crédito</label>
                                 </div>
-                                <div class="col-8 mt-1">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><img src="img/numero.ico" height="15px"></div>
+                                <div class="row container flotantes" id="flotanteCredito">
+                                    <div class="col-2" id="tipoTarjeta">
+                                        <div class="col">
+                                            <label class="row"><input class="mr-1"  type="radio" name="tarjeta" value="tarj" id="visa"><img src="img/Visa.ico" height="20px"></label>
                                         </div>
-                                        <input type="number" class="form-control req1" id="" placeholder="Número de tarjeta">
-                                    </div>
-                                </div>
-                                <div class="col-6 mt-1">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><img src="img/security_code_payment_method_card_icon_142732.jpg" height="14px"></div>
+                                        <div class="col">
+                                            <label class="row"><input class="mr-1"  type="radio" name="tarjeta" value="tarj" id="mastercard"><img src="img/mastercard.ico" height="20px"></label>
                                         </div>
-                                        <input type="number" class="form-control req1" id="" placeholder="Código CVV">
-                                        <ACRONYM title="Código de 3 ó 4 dígitos en tu tarjeta"><i class="far fa-question-circle m-1"></i></ACRONYM>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="col mt-1">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
+                                    <div class="col">
+                                        <div class="col mt-1">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text"><img src="img/user_card.ico" height="22px"></div>
+                                                </div>
+                                                <input type="text" class="form-control req1" id="" placeholder="Titular de la tarjeta">
+                                            </div>
                                         </div>
-                                        <input type="date" class="form-control" id="">
-                                        <small>F. vencimiento</small>
+                                        <div class="col-8 mt-1">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text"><img src="img/numero.ico" height="15px"></div>
+                                                </div>
+                                                <input type="number" class="form-control req1" id="" placeholder="Número de tarjeta">
+                                            </div>
+                                        </div>
+                                        <div class="col-6 mt-1">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text"><img src="img/security_code_payment_method_card_icon_142732.jpg" height="14px"></div>
+                                                </div>
+                                                <input type="number" class="form-control req1" id="" placeholder="Código CVV">
+                                                <ACRONYM title="Código de 3 ó 4 dígitos en tu tarjeta"><i class="far fa-question-circle m-1"></i></ACRONYM>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-6 mt-1">
-                                    <select class="form-control" name="" id="">
+                                    <div class="col-4">
+                                        <div class="col mt-1">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
+                                                </div>
+                                                <input type="date" class="form-control" id="">
+                                                <small>F. vencimiento</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 mt-1">
+                                            <select class="form-control" name="" id="">
                                                     <option hidden value="">--Moneda--</option>
                                                     <option value="">UY</option>
                                                     <option value="">USD</option>
                                                 </select>
+                                        </div>
+                                        <p id="error4" class="erroresCarrito"></p>
+                                    </div>
                                 </div>
-                                <p id="error4" class="erroresCarrito"></p>
                             </div>
-                        </div>
-                        <h2 class="mb-0">
-                            <label class="row m-1"><input type="radio" name="tbancaria" value="tbancaria" id="tbancaria">Transferencia bancaria</label>
-                        </h2>
-                        <div class="row">
                             <div class="col">
-                                <div class="col-4 mt-1">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><img src="img/user_card.ico" height="22px"></div>
-                                        </div>
-                                        <input type="text" class="form-control" id="" placeholder="Titular de la tarjeta">
-                                    </div>
+                                <div class="col">
+                                    <label class="row m-1"><input class="mr-1" type="radio" name="tcredito" value="tbancaria" id="tbancaria" onclick="showTransferencia()">Transferencia bancaria</label>
                                 </div>
-                                <div class="col-4 mt-1">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><img src="img/numero_cuenta.ico" height="22px"></div>
+                                <div class="row flotantes" id="flotanteTransferencia">
+                                    <div class="col">
+                                        <div class="col-4 mt-1">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text"><img src="img/user_card.ico" height="22px"></div>
+                                                </div>
+                                                <input type="text" class="form-control" id="" placeholder="Titular de la tarjeta">
+                                            </div>
                                         </div>
-                                        <input type="number" class="form-control" id="" placeholder="Numero de cuenta">
+                                        <div class="col-4 mt-1">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text"><img src="img/numero_cuenta.ico" height="22px"></div>
+                                                </div>
+                                                <input type="number" class="form-control" id="" placeholder="Numero de cuenta">
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-2 mt-1">
-                                <select class="form-control" name="" id="">
+                                    <div class="col-2 mt-1">
+                                        <select class="form-control" name="" id="">
                                               <option hidden value="">--Moneda--</option>
                                               <option value="">UY</option>
                                               <option value="">USD</option>
                                           </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="col">
+                                    <label class="row m-1"><input class="mr-1" type="radio" name="tcredito" value="efectivo" id="efectivo" onclick="showEfectivo()">Efectivo</label>
+                                </div>
+                                <div class="col flotantes" id="flotanteEnvio">
+                                    <label class="row"><input type="radio" id="tienda" class="mr-1" name="tienda" value="tienda"><img src="img/tienda.ico" height="20px"> Pago en el local</label>
+                                </div>
+                                <p id="error5" class="erroresCarrito"></p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col container">
-                        <h5 class="mb-0">
-                            <label class="row m-1"><input type="radio" name="efectivo" value="efectivo" id="efectivo">Efectivo</label>
-                        </h5>
-                        <div class="col-2">
-                            <label class="row"><input type="radio" id="tienda" class="mr-1" name="tienda" value="tienda"><img src="img/tienda.ico" height="20px"> Pago en el local</label>
-                        </div>
-                        <p id="error5"></p>
                     </div>
                     <div class="modal-body" id="flotante2">
                         <hr>
@@ -325,7 +332,6 @@
                                         <div class="input-group-text"><i class="fas fa-phone-alt"></i></div>
                                     </div>
                                     <input type="text" class="form-control req" id="" placeholder="Teléfono" required>
-
                                 </div>
                             </div>
                         </div>

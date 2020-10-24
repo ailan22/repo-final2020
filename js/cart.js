@@ -167,11 +167,11 @@ function validarForm() {
         numberWithCommas();
     }
     if (formaDePago())
-        tarjetaCredito();
+        validaTarjetaCredito();
     validarDatosEnvio();
 
 }
-
+// funciones para mostrar y ocultar contenedores de datos
 function showShipping0() {
     div = document.getElementById("flotante0");
     div.style.display = "block";
@@ -214,7 +214,55 @@ function Hidden() {
     showShipping1()
 };
 
-function tarjetaCredito() {
+function showShippingCredito() {
+    div = document.getElementById("flotanteCredito");
+    div.style.display = "block";
+};
+
+function hideShippingCredito() {
+    div = document.getElementById("flotanteCredito");
+    div.style.display = "none";
+};
+
+function showShippingTransferencia() {
+    div = document.getElementById("flotanteTransferencia");
+    div.style.display = "block";
+};
+
+function hideShippingTransferencia() {
+    div = document.getElementById("flotanteTransferencia");
+    div.style.display = "none";
+};
+
+function showShippingEfectivo() {
+    div = document.getElementById("flotanteEnvio");
+    div.style.display = "block";
+};
+
+function hideShippingEfectivo() {
+    div = document.getElementById("flotanteEnvio");
+    div.style.display = "none";
+};
+
+function showCredito() {
+    showShippingCredito();
+    hideShippingTransferencia();
+    hideShippingEfectivo();
+};
+
+function showTransferencia() {
+    hideShippingCredito();
+    showShippingTransferencia();
+    hideShippingEfectivo()
+};
+
+function showEfectivo() {
+    hideShippingCredito();
+    hideShippingTransferencia();
+    showShippingEfectivo();
+}
+
+function validaTarjetaCredito() {
     var form = document.getElementsByClassName("req1");
     var formValid = true;
 
@@ -229,6 +277,7 @@ function tarjetaCredito() {
     return true;
 };
 
+//Funcion que calcula el porciento del envío 
 function calcularEnvioSubtotal() {
     let a = document.getElementById("subtotal2").innerHTML;
     let premium = document.getElementById("Premium");
@@ -247,13 +296,25 @@ function calcularEnvioSubtotal() {
     document.getElementById("envío").innerHTML = resultado;
 };
 
-
+//Funcion que valida la seleción de una forma de pago
 function formaDePago() {
-    let a = document.getElementById("headingOne");
-    if (a.checked) {
-        document.getElementById("error5").innerHTML = "Debe seleccionar una forma de pago";
+    var pago = document.getElementsByName("tcredito");
+    var formValid = false;
+
+    var i = 0;
+    while (!formValid && i < pago.length) {
+        if (pago[i].checked)
+            formValid = true;
+        i++;
     }
-    document.getElementById("error5").innerHTML = "";
+
+    if (formValid == false) {
+        document.getElementById("error5").innerHTML = "Debe seleccionar una forma de pago";
+        return formValid;
+    } else {
+        document.getElementById("error5").innerHTML = "";
+        return true;
+    }
 };
 
 document.addEventListener("DOMContentLoaded", function(e) {
