@@ -191,7 +191,7 @@ function validaTarjetaCredito() {
     var formValid = true;
 
     for (i = 0; i < form.length; i++) {
-        formValid = formValid && form[i].value != "" || form[i].value != null;
+        formValid = formValid && form[i].value != "";
     }
     if (formValid == false || (!tar.checked) && (!master.checked)) {
         document.getElementById("error4").innerHTML = "Debe completar todos los datos";
@@ -248,19 +248,35 @@ function validarPagoEfectivo() {
 };
 
 function validarForm() {
-    validarEnvio();
-    if (validarTipoEnvio()) {
-        calcularEnvioSubtotal();
-        total();
-        numberWithCommas();
+    if (!validarEnvio())
+        return false;
+    if (document.getElementById("domicilio").checked) {
+        if (validarTipoEnvio()) {
+            calcularEnvioSubtotal();
+            total();
+            numberWithCommas();
+        } else {
+            return false;
+        }
+        if (validarDatosEnvio() == false)
+            return false;
     }
-    if (formaDePago()) {
-        validaTarjetaCredito();
-        validarTransferenciaBancaria();
-        validarPagoEfectivo();
+    if (!formaDePago())
+        return false;
+    if (validaTarjetaCredito() || validarTransferenciaBancaria() || validarPagoEfectivo()) {
+        $("#envioPago").modal('hide');
+        return true;
     }
-    validarDatosEnvio();
+    return false;
 }
+
+function finalizarCompra() {
+    if (validarForm()) {
+        alert("Exito");
+    } else {
+        alert("error");
+    }
+};
 
 // funciones para mostrar y ocultar contenedores de datos
 function showShipping0() {
@@ -297,12 +313,14 @@ function show() {
     showShipping0()
     showShipping1()
     showShipping2()
+    validarEnvio();
 };
 
 function Hidden() {
-    hideShipping0()
-    hideShipping2()
-    showShipping1()
+    hideShipping0();
+    hideShipping2();
+    showShipping1();
+    validarEnvio();
 };
 
 function showShippingCredito() {
