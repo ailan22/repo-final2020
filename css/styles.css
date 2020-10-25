@@ -458,3 +458,7 @@ body {
     background-color: red;
     font-weight: bold;
 }
+
+#botonPagoEnvio {
+    text-align: right;
+}

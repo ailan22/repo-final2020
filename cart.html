@@ -94,12 +94,9 @@
             </div>
 
         </div>
-        <p class="row border-bottom p-2 float-right total">Total: <img src="img/total.ico" height="25px"> <small id="totalgeneral" class="total"></small></p>
-        <div id="result"></div>
-        <div class="row">
-            <div class="col">
-                <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#envioPago">Pago y Envío</button>
-
+        <div class="col">
+            <div class="row float-right">
+                <p class="border-bottom p-2 total">Total: <img src="img/total.ico" height="25px"> <small id="totalgeneral" class="total"></small></p>
             </div>
         </div>
         <div class="modal fade" id="envioPago" tabindex="-1" aria-labelledby="envioPagoModal" aria-hidden="true">
@@ -138,9 +135,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="flotante1">
-                            <div class="col container">
-                                <hr>
+                        <div class="col" id="flotante1">
+                            <hr>
+                            <div class="col">
                                 <h5 class="tipoenvio">Forma de pago</h5>
                             </div>
                             <div class="col">
@@ -162,7 +159,7 @@
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text"><img src="img/user_card.ico" height="22px"></div>
                                                 </div>
-                                                <input type="text" class="form-control req1" id="" placeholder="Titular de la tarjeta">
+                                                <input type="text" class="form-control req1" placeholder="Titular de la tarjeta">
                                             </div>
                                         </div>
                                         <div class="col-8 mt-1">
@@ -170,7 +167,7 @@
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text"><img src="img/numero.ico" height="15px"></div>
                                                 </div>
-                                                <input type="number" class="form-control req1" id="" placeholder="Número de tarjeta">
+                                                <input type="number" class="form-control req1" placeholder="Número de tarjeta">
                                             </div>
                                         </div>
                                         <div class="col-6 mt-1">
@@ -178,18 +175,18 @@
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text"><img src="img/security_code_payment_method_card_icon_142732.jpg" height="14px"></div>
                                                 </div>
-                                                <input type="number" class="form-control req1" id="" placeholder="Código CVV">
+                                                <input type="number" class="form-control req1" placeholder="Código CVV">
                                                 <ACRONYM title="Código de 3 ó 4 dígitos en tu tarjeta"><i class="far fa-question-circle m-1"></i></ACRONYM>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <div class="col mt-1">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
                                                 </div>
-                                                <input type="date" class="form-control req1" id="">
+                                                <input type="date" class="form-control req1">
                                                 <small>F. vencimiento</small>
                                             </div>
                                         </div>
@@ -249,9 +246,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal-body" id="flotante2">
+                    <div class="col" id="flotante2">
                         <hr>
-                        <h5 class="tipoenvio">Datos</h5>
+                        <div class="col">
+                            <h5 class="tipoenvio">Datos</h5>
+                        </div>
                         <div class="row">
                             <div class="col">
                                 <div class="input-group">
@@ -340,12 +339,22 @@
                         <p id="error3" class="erroresCarrito"></p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-success float-right col-12" data-toggle="modal" data-target="#validar" onclick="validarForm()">Finalizar compra <img src="img/check.ico" height="20px"></button>
+                        <p id="exito"></p>
+                        <button type="button" class="btn btn-outline-success float-right col-12" data-toggle="modal" data-target="#validar" onclick="validarForm()">Aceptar <img src="img/check.ico" height="20px"></button>
                     </div>
                 </div>
             </div>
         </div>
-
+        <div class="col">
+            <div class="row m-2">
+                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#envioPago" id="botonPagoEnvio">Forma de pago y envío</button>
+            </div>
+        </div>
+        <div class="col">
+            <div class="row m-2">
+                <button type="button" class="btn btn-outline-success" onclick=""> Pagar <img src="img/pagar.ico" height="20px"></button>
+            </div>
+        </div>
         <div id="spinner-wrapper">
             <div class="lds-ring">
                 <div></div>

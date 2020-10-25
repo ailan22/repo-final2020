@@ -256,12 +256,12 @@ function validarForm() {
     }
     if (formaDePago()) {
         validaTarjetaCredito();
+        validarTransferenciaBancaria();
+        validarPagoEfectivo();
     }
-    validarTransferenciaBancaria();
-    validarPagoEfectivo()
     validarDatosEnvio();
-
 }
+
 // funciones para mostrar y ocultar contenedores de datos
 function showShipping0() {
     div = document.getElementById("flotante0");
