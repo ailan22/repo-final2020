@@ -272,9 +272,11 @@ function validarForm() {
 
 function finalizarCompra() {
     if (validarForm()) {
-        alert("Exito");
+        document.getElementById("exito").innerHTML = "Compra finalizada con éxito!!! Gracias por elegirnos";
+        exito.style.color = "green";
     } else {
-        alert("error");
+        document.getElementById("exito").innerHTML = "Lo sentimos no puede finalizar la compra, faltan datos";
+        exito.style.color = "red";
     }
 };
 
