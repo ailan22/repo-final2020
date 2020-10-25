@@ -189,12 +189,12 @@
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
                                                 </div>
-                                                <input type="date" class="form-control" id="">
+                                                <input type="date" class="form-control req1" id="">
                                                 <small>F. vencimiento</small>
                                             </div>
                                         </div>
                                         <div class="col-6 mt-1">
-                                            <select class="form-control" name="" id="">
+                                            <select class="form-control req1">
                                                     <option hidden value="">--Moneda--</option>
                                                     <option value="">UY</option>
                                                     <option value="">USD</option>
@@ -215,7 +215,7 @@
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text"><img src="img/user_card.ico" height="22px"></div>
                                                 </div>
-                                                <input type="text" class="form-control" id="" placeholder="Titular de la tarjeta">
+                                                <input type="text" class="form-control req2" placeholder="Titular de la tarjeta">
                                             </div>
                                         </div>
                                         <div class="col-4 mt-1">
@@ -223,17 +223,18 @@
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text"><img src="img/numero_cuenta.ico" height="22px"></div>
                                                 </div>
-                                                <input type="number" class="form-control" id="" placeholder="Numero de cuenta">
+                                                <input type="number" class="form-control req2" placeholder="Numero de cuenta">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-2 mt-1">
-                                        <select class="form-control" name="" id="">
+                                        <select class="form-control req2">
                                               <option hidden value="">--Moneda--</option>
                                               <option value="">UY</option>
                                               <option value="">USD</option>
                                           </select>
                                     </div>
+                                    <p id="error6" class="erroresCarrito"></p>
                                 </div>
                             </div>
                             <div class="col">
@@ -243,6 +244,7 @@
                                 <div class="col flotantes" id="flotanteEnvio">
                                     <label class="row"><input type="radio" id="tienda" class="mr-1" name="tienda" value="tienda"><img src="img/tienda.ico" height="20px"> Pago en el local</label>
                                 </div>
+
                                 <p id="error5" class="erroresCarrito"></p>
                             </div>
                         </div>

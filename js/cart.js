@@ -110,7 +110,8 @@ function validarTipoEnvio() {
 
     var i = 0;
     while (!formValid && i < tipoEnvio.length) {
-        if (tipoEnvio[i].checked) formValid = true;
+        if (tipoEnvio[i].checked)
+            formValid = true;
         i++;
     }
     if (formValid == false) {
@@ -143,6 +144,79 @@ function validarEnvio() {
     }
 };
 
+//Funcion que calcula el porciento del envío 
+function calcularEnvioSubtotal() {
+    let a = document.getElementById("subtotal2").innerHTML;
+    let premium = document.getElementById("Premium");
+    let express = document.getElementById("Express");
+    let standar = document.getElementById("Standard");
+    let porciento;
+
+    if (premium.checked) {
+        porciento = 15;
+    } else if (express.checked) {
+        porciento = 7;
+    } else if (standar.checked) {
+        porciento = 5;
+    }
+    var resultado = parseInt(a * porciento) / 100
+    document.getElementById("envío").innerHTML = resultado;
+};
+
+//Funcion que valida la seleción de una forma de pago
+function formaDePago() {
+    var pago = document.getElementsByName("tcredito");
+    var formValid = false;
+
+    var i = 0;
+    while (!formValid && i < pago.length) {
+        if (pago[i].checked)
+            formValid = true;
+        i++;
+    }
+    if (formValid == false) {
+        document.getElementById("error5").innerHTML = "Debe seleccionar una forma de pago";
+        return formValid;
+    } else {
+        document.getElementById("error5").innerHTML = "";
+        return true;
+    }
+};
+
+//Funcion valida que estén correctos los campos de tarjeta de crédito
+function validaTarjetaCredito() {
+    var form = document.getElementsByClassName("req1");
+    let tar = document.getElementById("visa");
+    let master = document.getElementById("mastercard");
+    var formValid = true;
+
+    for (i = 0; i < form.length; i++) {
+        formValid = formValid && form[i].value != "" || form[i].value != null;
+    }
+    if (formValid == false || (!tar.checked) && (!master.checked)) {
+        document.getElementById("error4").innerHTML = "Debe completar todos los datos";
+        return false;
+    }
+    document.getElementById("error4").innerHTML = "";
+    return true;
+};
+
+//Función valida transferencia bancaria
+function validarTransferenciaBancaria() {
+    var addrElem = document.getElementsByClassName("req2");
+    var formValid = true;
+    for (var i = 0; i < addrElem.length; i++) {
+        formValid = formValid && addrElem[i].value != "";
+    }
+    if (formValid == false) {
+        document.getElementById("error6").innerHTML = "Debe completar todos los datos";
+        return false;
+    } else {
+        document.getElementById("error6").innerHTML = "";
+        return true;
+    }
+};
+
 //Función valida datos de envío
 function validarDatosEnvio() {
     var addrElem = document.getElementsByClassName("req");
@@ -159,6 +233,20 @@ function validarDatosEnvio() {
     }
 };
 
+//Función valida pago en efectivo
+function validarPagoEfectivo() {
+    let efectivo = document.getElementById("tienda");
+
+    if (!efectivo.checked) {
+        document.getElementById("error5").innerHTML = "Debe seleccionar forma de pago"
+        return false;
+    } else {
+        document.getElementById("error5").innerHTML = "";
+        return true;
+    }
+
+};
+
 function validarForm() {
     validarEnvio();
     if (validarTipoEnvio()) {
@@ -166,8 +254,11 @@ function validarForm() {
         total();
         numberWithCommas();
     }
-    if (formaDePago())
+    if (formaDePago()) {
         validaTarjetaCredito();
+    }
+    validarTransferenciaBancaria();
+    validarPagoEfectivo()
     validarDatosEnvio();
 
 }
@@ -261,61 +352,6 @@ function showEfectivo() {
     hideShippingTransferencia();
     showShippingEfectivo();
 }
-
-function validaTarjetaCredito() {
-    var form = document.getElementsByClassName("req1");
-    var formValid = true;
-
-    for (i = 0; i < form.length; i++) {
-        formValid = formValid && form[i].value != "";
-    }
-    if (formValid == false) {
-        document.getElementById("error4").innerHTML = "Debe completar todos los datos";
-        return false;
-    }
-    document.getElementById("error4").innerHTML = "";
-    return true;
-};
-
-//Funcion que calcula el porciento del envío 
-function calcularEnvioSubtotal() {
-    let a = document.getElementById("subtotal2").innerHTML;
-    let premium = document.getElementById("Premium");
-    let express = document.getElementById("Express");
-    let standar = document.getElementById("Standard");
-    let porciento;
-
-    if (premium.checked) {
-        porciento = 15;
-    } else if (express.checked) {
-        porciento = 7;
-    } else if (standar.checked) {
-        porciento = 5;
-    }
-    var resultado = parseInt(a * porciento) / 100
-    document.getElementById("envío").innerHTML = resultado;
-};
-
-//Funcion que valida la seleción de una forma de pago
-function formaDePago() {
-    var pago = document.getElementsByName("tcredito");
-    var formValid = false;
-
-    var i = 0;
-    while (!formValid && i < pago.length) {
-        if (pago[i].checked)
-            formValid = true;
-        i++;
-    }
-
-    if (formValid == false) {
-        document.getElementById("error5").innerHTML = "Debe seleccionar una forma de pago";
-        return formValid;
-    } else {
-        document.getElementById("error5").innerHTML = "";
-        return true;
-    }
-};
 
 document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(CART2_BUY_URL).then(function(resultObj) {
