@@ -462,3 +462,14 @@ body {
 #botonPagoEnvio {
     text-align: right;
 }
+
+.fondoPerfil {
+    background-color: rgb(248, 245, 245);
+    height: 100%;
+}
+
+.imagen_perfil {
+    margin: 0 auto;
+    box-shadow: 1px 1px 5px rgb(80, 79, 79);
+    border: rgb(80, 79, 79) 1px solid;
+}

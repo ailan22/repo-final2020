@@ -56,19 +56,78 @@
         </div>
     </nav>
     <div class="container p-5">
-        <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-            <h4 class="alert-heading">¡A trabajar! :)</h4>
-            <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
+        <p class="text-black my-bg-dark">Perfil</p>
+        <div class="col fondoPerfil">
+            <div class="row text-center p-2">
+                <div class="col">
+                    <img class="img-fluid rounded-circle imagen_perfil" height="150px" width="150px" src="img/IMG_20201008_122507.jpg">
+                </div>
+            </div>
+            <div class="text-center">
+                <small class="text-muted">Foto</small>
+            </div>
             <hr>
-            <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+            <div>
+                <h4>Datos</h4>
+                <small>Nombre:</small>
+                <p id="my-profile">sad</p>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <form>
+                        <div class="row">
+                            <div class="input-group mb-1 col-5">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><img src="img/user_card.ico" height="20px"></span>
+                                </div>
+                                <input type="text" name="nombre" id="NombreYApellidos" class="form-control my-form-control" placeholder="-Nombre y apellidos-">
+                            </div>
+                            <div class="col">
+                                <img src="img/lapiz.ico" height="20px">
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group mb-1 col-5">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><img src="img/email.ico" height="20px"></span>
+                                </div>
+                                <input type="email" name="email" id="email" class="form-control my-form-control" placeholder="-Correo electrónico-">
+                            </div>
+                            <div class="col">
+                                <img src="img/lapiz.ico" height="20px">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group mb-1 col-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><img src="img/telefono.ico" height="20px"></span>
+                                </div>
+                                <input type="number" name="telefono" id="telefono" class="form-control my-form-control" placeholder="-Teléfono-" min="1">
+                            </div>
+                            <div class="col">
+                                <img src="img/lapiz.ico" height="20px">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group mb-1 col-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><img src="img/edad.ico" height="20px"></span>
+                                </div>
+                                <input type="number" name="Edad" id="edad" class="form-control my-form-control" placeholder="-Edad-" min="1">
+                            </div>
+                            <div class="col">
+                                <img src="img/lapiz.ico" height="20px">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-    <footer class="text-muted bg-light">
-        <div class="container">
-            <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-            <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-        </div>
-    </footer>
+
     <div class="alert fade alert-success" role="alert" id="alertResult">
         <span id="resultSpan"></span>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -87,7 +146,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content" style="border: crimson 2px solid;">
                 <div class="modal-header" style="background-color: rgb(255, 122, 148);">
-                    <h4 style="color: rgb(255, 255, 255);">Desea cerrar sesión?</h4>
+                    <h4 style="color: rgb(255, 255, 255); ">Desea cerrar sesión?</h4>
                     <img src="img/cerrar-sesion.ico" height="50px">
                 </div>
                 <div class="modal-body text-center">
