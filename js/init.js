@@ -12,7 +12,9 @@ const COUNTRY = "https://raw.githubusercontent.com/millan2993/countries/master/j
 miStorage = window.sessionStorage;
 document.addEventListener("DOMContentLoaded", function(e) {
     document.getElementById("user").innerHTML = miStorage.getItem("keyUsuario")
+        //document.getElementById("email").innerHTML = miStorage.getItem("keyEmail")
 });
+
 
 function signOff() {
     miStorage.removeItem("keyUsuario");

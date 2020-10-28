@@ -98,7 +98,13 @@ function validarForm() {
 miStorage = window.sessionStorage;
 
 function mostrarUsuario() {
-
     var usuario2 = document.getElementById("inputUsuario").value;
     miStorage.setItem("keyUsuario", usuario2);
 };
+
+/*miEmail = window.sessionStorage;
+
+function mostrarDatosLogin() {
+    var correo = document.getElementById("inputEmail").value;
+    miEmail.setItem("keyEmail", correo);
+};*/
