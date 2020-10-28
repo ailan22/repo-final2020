@@ -99,7 +99,11 @@ miStorage = window.sessionStorage;
 
 function mostrarUsuario() {
     var usuario2 = document.getElementById("inputUsuario").value;
+    var email2 = document.getElementById("inputEmail").value;
+    var password2 = document.getElementById("inputPassword").value;
     miStorage.setItem("keyUsuario", usuario2);
+    miStorage.setItem("keyEmail", email2);
+    miStorage.setItem("keyPassword", password2);
 };
 
 /*miEmail = window.sessionStorage;

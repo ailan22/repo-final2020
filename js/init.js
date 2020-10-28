@@ -12,7 +12,11 @@ const COUNTRY = "https://raw.githubusercontent.com/millan2993/countries/master/j
 miStorage = window.sessionStorage;
 document.addEventListener("DOMContentLoaded", function(e) {
     document.getElementById("user").innerHTML = miStorage.getItem("keyUsuario")
-        //document.getElementById("email").innerHTML = miStorage.getItem("keyEmail")
+    document.getElementById("email").innerHTML = miStorage.getItem("keyEmail")
+    document.getElementById("password").innerHTML = miStorage.getItem("keyPassword")
+    document.getElementById("nombre").innerHTML = miStorage.getItem("keyNombre")
+    document.getElementById("telefono").innerHTML = miStorage.getItem("keyTelefono")
+    document.getElementById("NoEdad").innerHTML = miStorage.getItem("keyEdad")
 });
 
 

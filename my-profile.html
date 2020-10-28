@@ -60,73 +60,95 @@
         <div class="col fondoPerfil">
             <div class="row text-center p-2">
                 <div class="col">
-                    <img class="img-fluid rounded-circle imagen_perfil" height="150px" width="150px" src="img/IMG_20201008_122507.jpg">
+                    <img class="img-fluid rounded-circle imagen_perfil" height="150px" width="150px" id="agregar">
                 </div>
             </div>
             <div class="text-center">
-                <small class="text-muted">Foto</small>
+                <div id="ocultar">Foto</div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-4">
-                    <h4>Datos</h4>
+                    <h4 style="font-weight: bold;" class="text-center">Datos</h4>
                 </div>
-                <div class="col-8">
-                    <button type="submit" class="btn btn-warning">Editar</button>
+                <div class="col-4 text-center">
+                    <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#datosPersonales">Editar <img src="img/lapiz.ico" height="15px"></button>
                 </div>
             </div>
-            <div>
-                <p class="text-muted">Nombre: <span style="font-weight: bold;" id="profile"></span></p>
-                <p class="text-muted">Email: <span style="font-weight: bold;" id="email"></span></p>
+            <div class="col">
+                <p class="text-muted border-bottom">Nombre y apellidos: <span style="font-weight: bold;" id="nombre" </span></p>
+                <p class="text-muted border-bottom">Usuario: <span style="font-weight: bold;" id="profile"></span></p>
+                <p class="text-muted border-bottom">Contraseña: <span style="font-weight: bold;" id="password"></span></p>
+                <p class="text-muted border-bottom">Email: <span style="font-weight: bold;" id="email"></span></p>
+                <p class="text-muted border-bottom">Teléfono: <span style="font-weight: bold;" id="noTelefono"></span></p>
+                <p class="text-muted border-bottom">Edad: <span style="font-weight: bold;" id="NoEdad"></span> años</p>
             </div>
-            <div class="row">
-                <div class="col">
-                    <form>
-                        <div class="row">
-                            <div class="input-group mb-1 col-5">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><img src="img/user_card.ico" height="20px"></span>
-                                </div>
-                                <input type="text" name="nombre" id="NombreYApellidos" class="form-control my-form-control" placeholder="-Nombre y apellidos-">
-                            </div>
-                            <div class="col">
-                                <img src="img/lapiz.ico" height="20px">
-                            </div>
+            <div class="modal fade" id="datosPersonales" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modificar datos personales</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
                         </div>
-                        <div class="row">
-                            <div class="input-group mb-1 col-5">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><img src="img/email.ico" height="20px"></span>
+                        <div class="modal-body">
+                            <form>
+                                <div class="row">
+                                    <div class="input-group mb-1 col-9">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><img src="img/user_card.ico" height="20px"></span>
+                                        </div>
+                                        <input type="text" name="nombre" id="NombreYApellidos" class="form-control my-form-control" placeholder="-Nombre y apellidos-">
+                                    </div>
                                 </div>
-                                <input type="email" name="email" id="email" class="form-control my-form-control" placeholder="-Correo electrónico-">
-                            </div>
-                            <div class="col">
-                                <img src="img/lapiz.ico" height="20px">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-group mb-1 col-4">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><img src="img/telefono.ico" height="20px"></span>
+                                <div class="row">
+                                    <div class="input-group mb-1 col-8">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><img src="img/modificar_user.ico" height="20px"></span>
+                                        </div>
+                                        <input type="text" name="Usuario" id="Usuario" class="form-control my-form-control" placeholder="-Usuario-">
+                                    </div>
                                 </div>
-                                <input type="number" name="telefono" id="telefono" class="form-control my-form-control" placeholder="-Teléfono-" min="1">
-                            </div>
-                            <div class="col">
-                                <img src="img/lapiz.ico" height="20px">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-group mb-1 col-2">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><img src="img/edad.ico" height="20px"></span>
+                                <div class="row">
+                                    <div class="input-group mb-1 col-8">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><img src="img/cambiar_password.ico" height="20px"></span>
+                                        </div>
+                                        <input type="text" name="Contraseña" id="Contraseña" class="form-control my-form-control" placeholder="-Contraseña-">
+                                    </div>
                                 </div>
-                                <input type="number" name="Edad" id="edad" class="form-control my-form-control" placeholder="-Edad-" min="1">
-                            </div>
-                            <div class="col">
-                                <img src="img/lapiz.ico" height="20px">
-                            </div>
+                                <div class="row">
+                                    <div class="input-group mb-1 col-7">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><img src="img/email.ico" height="20px"></span>
+                                        </div>
+                                        <input type="email" name="email" id="email" class="form-control my-form-control" placeholder="-Correo electrónico-">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-group mb-1 col-6">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><img src="img/telefono.ico" height="20px"></span>
+                                        </div>
+                                        <input type="number" name="telefono" id="telefono" class="form-control my-form-control" placeholder="-Teléfono-" min="1">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-group mb-1 col-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><img src="img/edad.ico" height="20px"></span>
+                                        </div>
+                                        <input type="number" name="edad" id="edad" class="form-control my-form-control" placeholder="-Edad-" min="1">
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-success" onclick="modificarDatos()">Guardar cambios <img src="img/check.ico" height="20px"></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
