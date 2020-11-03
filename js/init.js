@@ -9,19 +9,30 @@ const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 const CART2_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/654.json";
 const COUNTRY = "https://raw.githubusercontent.com/millan2993/countries/master/json/countries.json";
 
-miStorage = window.sessionStorage;
+//Función que se ejecuta una vez que se haya lanzado el evento de
+//que el documento se encuentra cargado, es decir, se encuentran todos los
+//elementos HTML presentes.
+miStorage = window.localStorage;
 document.addEventListener("DOMContentLoaded", function(e) {
-    document.getElementById("user").innerHTML = miStorage.getItem("keyUsuario")
-    document.getElementById("email").innerHTML = miStorage.getItem("keyEmail")
-    document.getElementById("password").innerHTML = miStorage.getItem("keyPassword")
-    document.getElementById("nombre").innerHTML = miStorage.getItem("keyNombre")
-    document.getElementById("telefono").innerHTML = miStorage.getItem("keyTelefono")
-    document.getElementById("NoEdad").innerHTML = miStorage.getItem("keyEdad")
+
+    Jsonusuario = JSON.parse(miStorage.getItem("keyDatos"))
+
+
+    document.getElementById("user").value = localStorage.getItem("keyUsuario")
+    document.getElementById("profile").value = localStorage.getItem("keyUsuario")
+    document.getElementById("email").value = localStorage.getItem("keyEmail")
+        //document.getElementById("password").value = localStorage.getItem("keyPassword")
+    document.getElementById("nombre").value = Jsonusuario.na
+    document.getElementById("noTelefono").value = Jsonusuario.telefono
+    document.getElementById("NoEdad").value = Jsonusuario.edad
+
 });
 
 
 function signOff() {
-    miStorage.removeItem("keyUsuario");
+    localStorage.removeItem("keyUsuario");
+    localStorage.removeItem("keyEmail");
+    localStorage.removeItem("keyPassword");
 };
 
 const currentURL = window.location.href;
@@ -64,7 +75,3 @@ var getJSONData = function(url) {
             return result;
         });
 }
-
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.

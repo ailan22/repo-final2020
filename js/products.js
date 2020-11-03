@@ -56,24 +56,20 @@ function sortProducts(criteria, array) {
 //Mostrar la lista de productos
 function appendElement(producto) {
     return `      
-    <a href="product-info.html" class="list-group-item list-group-item-action">  
-        <div class="list-group-item">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">` + producto.name + `</h4>
-                        <small class="text-muted">` + producto.soldCount + ` vendidos </small>
-                    </div>
-                    <div>` + "Precio: " + producto.currency + " " + producto.cost + `</div>
-                    <p class="mb-1">` + producto.description + `</p>
-                </div>
-            </div>
-        </div>
-        </a>
-        `
+    <div class="col-md-4 p-2 col-12">
+            <a href="product-info.html" class="list-group-item-action card col">                
+                        <img src="` + producto.imgSrc + `" alt="` + `" class="card-img-top">
+                        <div class="card-body" style="height:200px;">
+                            <h5 class="card-title">` + producto.name + ` </h5>
+                            <p class="card-text">` + producto.description + `</p>
+                                <div class="">
+                                    <small class="text-muted">` + "Precio: " + producto.currency + " " + producto.cost + `</small>
+                                </div>                                
+                                <small class="text-muted">` + producto.soldCount + ` vendidos </small>
+                        </div>                                                       
+            </a>
+    </div>
+    `
 }
 //Filtrar por precios
 function showProductsList() {

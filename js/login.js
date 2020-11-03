@@ -95,7 +95,7 @@ function validarForm() {
 
 };
 //mostrar nombre de usuario 
-miStorage = window.sessionStorage;
+miStorage = window.localStorage;
 
 function mostrarUsuario() {
     var usuario2 = document.getElementById("inputUsuario").value;
@@ -105,10 +105,3 @@ function mostrarUsuario() {
     miStorage.setItem("keyEmail", email2);
     miStorage.setItem("keyPassword", password2);
 };
-
-/*miEmail = window.sessionStorage;
-
-function mostrarDatosLogin() {
-    var correo = document.getElementById("inputEmail").value;
-    miEmail.setItem("keyEmail", correo);
-};*/

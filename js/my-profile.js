@@ -4,35 +4,44 @@
 document.addEventListener("DOMContentLoaded", function(e) {
     document.getElementById("profile").innerHTML = miStorage.getItem("keyUsuario")
     document.getElementById("email").innerHTML = miStorage.getItem("keyEmail")
-    document.getElementById("password").innerHTML = miStorage.getItem("keyPassword")
-
+        //document.getElementById("password").innerHTML = miStorage.getItem("keyPassword")
 });
 
-miStorage = window.sessionStorage;
+let miStorage = window.localStorage;
 
 function modificarDatos() {
-    var nombreYApellido = document.getElementById("NombreYApellidos").value;
-    var telefono = document.getElementById("telefono").value
-    var edad = document.getElementById("edad").value
-    miStorage.setItem("keyNombre", nombreYApellido);
-    miStorage.setItem("keyTelefono", telefono);
-    miStorage.setItem("keyEdad", edad);
-    document.getElementById("nombre").innerHTML = miStorage.getItem("keyNombre")
-    document.getElementById("noTelefono").innerHTML = miStorage.getItem("keyTelefono")
-    document.getElementById("NoEdad").innerHTML = miStorage.getItem("keyEdad")
+    var Jsonusuario = {
+        "na": document.getElementById("nombre").value,
+        "telefono": document.getElementById("noTelefono").value,
+        "edad": document.getElementById("noEdad").value
+    }
+    miStorage.setItem("keyDatos", JSON.stringify(Jsonusuario));
 };
 
-
-
-//Función que al pasar el mouse por la imagen muestra texto para cambiarla
-window.onload = function() {
-    var elemento = document.getElementById("agregar");
-    elemento.onmouseover = function(e) {
-        document.getElementById("ocultar").innerHTML = " + Agregar foto de perfil";
-        agregar.style.background = "rgb(205, 205, 255)";
-    };
-    elemento.onmouseout = function(e) {
-        document.getElementById("ocultar").innerHTML = "Foto";
-        agregar.style.background = "white";
-    };
+//Funcion para agregar foto de perfil
+function addImagen() {
+    var archivo = document.getElementById("foto").files[0];
+    var reader = new FileReader();
+    if (foto) {
+        reader.readAsDataURL(archivo);
+        reader.onloadend = function() {
+            document.getElementById("agregar").src = reader.result;
+        }
+    }
 };
+
+function undisableTxt() {
+    document.getElementById("nombre").disabled = false;
+    document.getElementById("profile").disabled = false;
+    document.getElementById("email").disabled = false;
+    document.getElementById("noTelefono").disabled = false;
+    document.getElementById("noEdad").disabled = false;
+}
+
+function disableTxt() {
+    document.getElementById("nombre").disabled = true;
+    document.getElementById("profile").disabled = true;
+    document.getElementById("email").disabled = true;
+    document.getElementById("noTelefono").disabled = true;
+    document.getElementById("noEdad").disabled = true;
+}
