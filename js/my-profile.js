@@ -15,6 +15,7 @@ function modificarDatos() {
         "telefono": document.getElementById("noTelefono").value,
         "edad": document.getElementById("noEdad").value
     }
+    console.log(Jsonusuario);
     miStorage.setItem("keyDatos", JSON.stringify(Jsonusuario));
 };
 
