@@ -66,7 +66,7 @@
             <div class="row">
                 <div class="col text-center">
                     <button class="btn btn-primary col-3 text-center">
-                    <label style="color: white;" for="foto"> <img src="img/add.ico" height="20px"> Agregar foto</label>
+                    <label style="color: white;" for="foto"> <img src="img/add.ico" height="20px" id="imgPreview"> Agregar foto</label>
                     <input class="col-1" type="file" id="foto" accept="image/*" onchange="addImagen()" style="opacity: 0;" />
                 </button>
                 </div>
@@ -83,7 +83,7 @@
                         <p class="text-muted" style="text-align: right;">Nombre y apellidos: </p>
                     </div>
                     <div class="col-6">
-                        <input style="font-weight: bold; width: 50%;" id="nombre" disabled />
+                        <input type="text" style="font-weight: bold; width: 50%;" id="nombre" disabled />
                     </div>
                 </div>
                 <div class="row">
@@ -91,7 +91,7 @@
                         <p class="text-muted" style="text-align: right;">Usuario: </p>
                     </div>
                     <div class="col-6">
-                        <input style="font-weight: bold; width: 50%;" id="profile" disabled />
+                        <input type="text" style="font-weight: bold; width: 50%;" id="profile" disabled />
                     </div>
                 </div>
                 <div class="row">
@@ -99,7 +99,7 @@
                         <p class="text-muted" style="text-align: right;">Email: </p>
                     </div>
                     <div class="col-6">
-                        <input style="font-weight: bold; width: 50%;" id="email" disabled />
+                        <input type="email" style="font-weight: bold; width: 50%;" id="email" disabled />
                     </div>
                 </div>
                 <div class="row">
@@ -107,7 +107,7 @@
                         <p class="text-muted" style="text-align: right;">Teléfono: </p>
                     </div>
                     <div class="col-6">
-                        <input style="font-weight: bold; width: 50%;" id="noTelefono" disabled />
+                        <input type="number" style="font-weight: bold; width: 50%;" id="noTelefono" disabled />
                     </div>
                 </div>
                 <div class="row">
@@ -115,16 +115,32 @@
                         <p class="text-muted" style="text-align: right;">Edad: </p>
                     </div>
                     <div class="col-6">
-                        <input style="font-weight: bold; width: 50%;" id="noEdad" disabled />
+                        <input type="number" style="font-weight: bold; width: 50%;" id="noEdad" disabled /><span>años</span>
                     </div>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <div class="col">
-                    <div class="text-center p-2">
-                        <button type="submit" class="btn btn-warning col-5" style="color: white;" onclick="undisableTxt()"> Editar <img src="img/lapiz.ico" height="15px"></button>
-                        <button type="submit" class="btn btn-primary col-5" onclick="disableTxt(), modificarDatos()"> Guardar <img src="img/check.ico" height="15px"></button>
+                    <div class="text-center p-1">
+                        <button type="submit" class="btn btn-warning col-3" style="color: white;" onclick="undisableTxt()"> Editar <img src="img/lapiz.ico" height="15px"></button>
+                        <button type="submit" class="btn btn-primary col-3" onclick="disableTxt(), modificarDatos()"> Guardar <img src="img/check.ico" height="15px"></button>
+                        <button data-toggle="modal" data-target="#deleteProfile" type="submit" class="btn btn-danger col-3" value="delete"> Eliminar cuenta <img src="img/delete_removewaste_departure_action_delet_10837.ico" height="15px"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="deleteProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="border: crimson 2px solid;">
+                    <div class="modal-header" style="background-color: rgb(255, 96, 128);">
+                        <h4 style="color: rgb(255, 255, 255);">Desea eliminar el usuario?</h4>
+                        <img src="img/cerrar-sesion.ico" height="50px">
+                    </div>
+                    <div class="modal-body text-center"></div>
+                    <div class="text-center">
+                        <a style="color:blue;" href="login.html"> <button class="btn btn-outline-secondary my-btn-secondary" onclick="signOff()"> Si </button></a>
+                        <a data-dismiss="modal" aria-label="Close"> <button class="btn btn-outline-secondary my-btn-secondary"> No </button></a>
                     </div>
                 </div>
             </div>

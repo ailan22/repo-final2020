@@ -14,25 +14,16 @@ const COUNTRY = "https://raw.githubusercontent.com/millan2993/countries/master/j
 //elementos HTML presentes.
 miStorage = window.localStorage;
 document.addEventListener("DOMContentLoaded", function(e) {
-
     Jsonusuario = JSON.parse(miStorage.getItem("keyDatos"))
-
-
-    document.getElementById("user").value = localStorage.getItem("keyUsuario")
-    document.getElementById("profile").value = localStorage.getItem("keyUsuario")
-    document.getElementById("email").value = localStorage.getItem("keyEmail")
-        //document.getElementById("password").value = localStorage.getItem("keyPassword")
-    document.getElementById("nombre").value = Jsonusuario.na
-    document.getElementById("noTelefono").value = Jsonusuario.telefono
-    document.getElementById("NoEdad").value = Jsonusuario.edad
-
+    if (Jsonusuario != null) {
+        document.getElementById("user").innerHTML = Jsonusuario.usuario;
+    }
 });
 
 
 function signOff() {
-    localStorage.removeItem("keyUsuario");
-    localStorage.removeItem("keyEmail");
-    localStorage.removeItem("keyPassword");
+    localStorage.removeItem("keyDatos");
+    localStorage.removeItem("recent-image");
 };
 
 const currentURL = window.location.href;
