@@ -18,10 +18,10 @@ function validateComent() {
         document.getElementById("errorComent").innerHTML = "";
         comment.style.borderColor = "green";
         boton.style.backgroundColor = "green";
-        boton.style.borderColor = "green";     
-        return true;     
-    }    
-    
+        boton.style.borderColor = "green";
+        return true;
+    }
+
 };
 
 //validación de estrellas
@@ -39,16 +39,16 @@ function validateStars() {
         document.getElementById("errorEstrellas").innerHTML = "Debe ingresar su valoración";
         return formValid;
     } else {
-        document.getElementById("errorEstrellas").innerHTML = "";  
-        return true;        
+        document.getElementById("errorEstrellas").innerHTML = "";
+        return true;
     }
 };
 //validación de comentarios y estrellas
-function validateComentAndStars(){
-    if (validateComent() && validateStars()){
+function validateComentAndStars() {
+    if (validateComent() && validateStars()) {
         document.getElementById("mensaje").innerHTML = "¡Mensaje enviado correctamente!";
         return true
-    }else{
+    } else {
         document.getElementById("mensaje").innerHTML = "";
         return false
     }
@@ -80,6 +80,7 @@ function listImages(array2) {
     document.getElementById("imagenes").innerHTML = htmlContentToAppend3;
 };
 
+//Muestro el información del producto
 function appenProduct(lista) {
 
     let htmlContentToAppend = `
@@ -142,7 +143,7 @@ function listComment(array) {
 function getScore() {
     var ele = document.getElementsByName('estrellas');
     for (i = 0; i < ele.length; i++) {
-        if(ele[i].checked) {
+        if (ele[i].checked) {
             return ele[i].value;
         }
     }
@@ -153,7 +154,7 @@ miStorage = window.sessionStorage;
 
 function saveComment() {
     let current_datetime = new Date()
-    let formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds() 
+    let formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds()
     nuevo = {
         "score": getScore(),
         "description": document.getElementById("comment").value,
@@ -177,11 +178,11 @@ function showComment() {
 
 
 //Muestro productos relacionados
-function productRelated(autos){
-    let htmlContentToAppend4="";
-    for(i=0; i<autos.length; i++){
-        let a=autos[i];
-        if(i == 1 || i == 3) {
+function productRelated(autos) {
+    let htmlContentToAppend4 = "";
+    for (i = 0; i < autos.length; i++) {
+        let a = autos[i];
+        if (i == 1 || i == 3) {
             htmlContentToAppend4 += `
                 <div class="col">
                     <div class="card-deck col-5" style="float: left;">

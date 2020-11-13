@@ -8,6 +8,7 @@ var input2 = document.getElementById("inputPassword2");
 
 boton.addEventListener("click", mostrarContraseña);
 
+//Opción de mostrar la contraseña
 function mostrarContraseña() {
     if (input.type == "password" && input2.type == "password") {
         input.type = "text";
@@ -20,6 +21,7 @@ function mostrarContraseña() {
     }
 };
 
+
 var usuario2 = document.getElementById("inputUsuario");
 var usuario = document.getElementById("inputUsuario");
 var correo = document.getElementById("inputEmail");
@@ -29,10 +31,9 @@ var errorUsuario = document.getElementById("demo");
 var errorCorreo = document.getElementById("demo1");
 var errorContraseña = document.getElementById("demo2");
 
+//Valida los campos del login que sean obligatorios y las contraseñas iguales
 function validarForm() {
-
     var mensajeError = [];
-
     errorUsuario.innerHTML = "";
     errorCorreo.innerHTML = "";
     errorContraseña.innerHTML = "";
@@ -97,7 +98,7 @@ function validarForm() {
 //mostrar nombre de usuario 
 miStorage = window.localStorage;
 
-
+//Muestro datos del usuario
 function mostrarUsuario() {
     var usuario2 = document.getElementById("inputUsuario").value;
     var email2 = document.getElementById("inputEmail").value;
