@@ -74,8 +74,7 @@ function listImages(array2) {
              <img class="my-column border border-secundary zoom" src="` + imag + `"/> 
             </div>            
         </div>  
-        
-        `
+     `
     }
     document.getElementById("imagenes").innerHTML = htmlContentToAppend3;
 };
