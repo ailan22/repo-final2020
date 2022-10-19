@@ -53,7 +53,7 @@ function validateComentAndStars() {
         return false
     }
 }
-
+//Vaciar caja de comentarios después de enviar
 function vaciarcomentario() {
     document.getElementById("comment").value = "";
 }
