@@ -53,11 +53,17 @@ function validateComentAndStars() {
         return false
     }
 }
+
+function vaciarcomentario() {
+    document.getElementById("comment").value = "";
+}
+
 //Función que valida que todo esté validado y muestre el comentario
 function sendComment() {
     if (validateComentAndStars()) {
         saveComment()
         showComment()
+        vaciarcomentario()
     }
 }
 
@@ -89,7 +95,7 @@ function appenProduct(lista) {
                             </div>
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-5 font-weight-bold">` + lista.name + `</h5>
-                                <small class="font-weight">` + lista.currency + lista.cost + ` </small>
+                                <small class="font-weight-bold">` + lista.currency + lista.cost + ` </small>
                                 <small class="font-weight">` + lista.soldCount + ` vendidos</small>
                             </div>                            
                                  <p class="mb-1">` + lista.description + `</p>                            
