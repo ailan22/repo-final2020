@@ -54,6 +54,7 @@ function validateComentAndStars() {
     }
 }
 
+//Vaciar caja de comentario despues de enviado
 function vaciarcomentario() {
     document.getElementById("comment").value = "";
 }
