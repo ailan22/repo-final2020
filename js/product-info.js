@@ -59,12 +59,22 @@ function vaciarcomentario() {
     document.getElementById("comment").value = "";
 }
 
+//Vaciar la puntuación de las estrellas
+function desmarcarTodo() {
+    for (let i = 0; i < document.puntuacion.elements.length; i++) {
+        if (document.puntuacion.elements[i].type == "radio") {
+            document.puntuacion.elements[i].checked = false
+        }
+    }
+}
+
 //Función que valida que todo esté validado y muestre el comentario
 function sendComment() {
     if (validateComentAndStars()) {
         saveComment()
         showComment()
         vaciarcomentario()
+        desmarcarTodo()
     }
 }
 
