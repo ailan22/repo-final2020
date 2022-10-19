@@ -98,8 +98,6 @@ function validarForm() {
 //mostrar nombre de usuario 
 miStorage = window.localStorage;
 
-
-
 //Muestro datos del usuario
 function mostrarUsuario() {
     var usuario2 = document.getElementById("inputUsuario").value;
